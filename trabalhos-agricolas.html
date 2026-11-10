@@ -1,0 +1,2366 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Trabalhos Agrícolas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Campo e terra: neutros frios com fundo de relva, verde-azulado profundo como acento único,
+   âmbar e tijolo só para estados (atenção e vencido). Layout denso, legível à luz do dia. */
+:root{--bg:#f2f5f2;--surface:#ffffff;--fg:#1b2420;--muted:#5a6661;--line:#dbe2dd;--accent:#1d6a52;--accent-fg:#ffffff;--ok:#1d6a52;--warn:#8f5b00;--alert:#ab3a2d;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e1412;--surface:#152019;--fg:#e2ebe6;--muted:#93a39b;--line:#2a3733;--accent:#6cc4a6;--accent-fg:#0b1512;--ok:#6cc4a6;--warn:#e8b15a;--alert:#f0877a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1412;--surface:#152019;--fg:#e2ebe6;--muted:#93a39b;--line:#2a3733;--accent:#6cc4a6;--accent-fg:#0b1512;--ok:#6cc4a6;--warn:#e8b15a;--alert:#f0877a;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 "IBM Plex Sans",system-ui,sans-serif;padding-inline:16px;padding-block:0 32px}
+h1{font-size:20px;font-weight:600;margin:0;letter-spacing:-.01em}
+h2{font-size:16px;font-weight:600;margin:0 0 12px}
+header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding-block:16px 8px}
+nav{display:flex;gap:2px;flex-wrap:wrap;width:100%;border-bottom:1px solid var(--line)}
+nav button{background:transparent;border:0;border-bottom:2px solid transparent;border-radius:0;color:var(--muted);padding:8px 10px;margin-bottom:-1px}
+nav button:hover{color:var(--fg)}
+button{font:inherit;cursor:pointer;border-radius:8px;padding:8px 12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);transition:background .15s,border-color .15s}
+button:hover{border-color:var(--accent)}
+button.primary:hover{filter:brightness(1.06);border-color:var(--accent)}
+button.primary{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+button.danger{border-color:var(--fg);font-weight:600}
+nav button[aria-selected="true"]{color:var(--fg);font-weight:600;border-bottom-color:var(--accent)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button:disabled,select:disabled{opacity:.5;cursor:not-allowed}
+.ico{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto;vertical-align:-3px;margin-right:6px}
+nav .ico{width:18px;height:18px;margin-right:6px}
+button{display:inline-flex;align-items:center;justify-content:center}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;margin-block:14px;box-shadow:0 1px 2px rgba(20,32,27,.05)}
+form{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+input,select,textarea{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px;min-width:0;width:100%}
+.full{grid-column:1/-1}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row>*{flex:1 1 140px}
+.row>button{flex:0 0 auto}
+.prev{margin:0;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px;font-variant-numeric:tabular-nums;background:var(--bg);border-radius:4px;padding:8px;color:var(--fg)}
+.sub{margin:6px 0 0;font-size:13px;color:var(--muted);font-weight:600}
+ul{list-style:none;padding:0;margin:0}
+li{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:10px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+li>div:first-child{min-width:0;flex:1 1 200px}
+.grupo{border-top:0;padding:14px 0 2px;color:var(--accent);font-size:13px;font-weight:600;width:100%}
+.subitem{padding-left:18px;border-top-style:dashed}
+.muted{color:var(--muted);font-size:13px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.acts{display:flex;gap:6px}
+.acts button{padding:4px 8px;font-size:13px}
+.confirm{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;border:1px solid var(--fg);border-radius:4px;padding:10px}
+.empty{color:var(--muted);display:block;padding:10px 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.stat{border-top:2px solid var(--accent);padding-top:8px}
+.stat span{letter-spacing:.01em}
+.stat span{display:block;color:var(--muted);font-size:12px}
+.stat strong{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:17px;font-variant-numeric:tabular-nums;font-weight:500}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 4px;border-top:1px solid var(--line);text-align:left}
+th{color:var(--muted);font-weight:500;font-size:12px}
+.num{text-align:right;font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+#status{min-height:1.5em;color:var(--accent);font-size:14px;margin:8px 0 0}
+a.btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;text-decoration:none;cursor:pointer;border-radius:4px;padding:8px 12px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-fg)}
+.recibo{background:#fffdf8;color:#1c2418;border:1px solid var(--line);border-radius:4px;padding:20px;margin-top:12px;font-family:"IBM Plex Sans",system-ui,sans-serif}
+.recibo .rc-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid #1c2418;padding-bottom:10px}
+.recibo .rc-head strong{font-size:20px;letter-spacing:.08em}
+.recibo .rc-block{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:16px 0}
+.recibo .rc-desc{margin:0 0 16px;line-height:1.5}
+.recibo table{width:100%;border-collapse:collapse}
+.recibo th,.recibo td{padding:8px 4px;border-top:1px solid #d6d1bf;text-align:left;vertical-align:top}
+.recibo tfoot th{border-top:2px solid #1c2418;font-size:16px}
+.recibo .num{text-align:right;font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+.recibo .muted{color:#646b5c;font-size:12px}
+.pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--ok);margin-left:6px;color:var(--ok);vertical-align:middle}
+.pill.breve{border-color:var(--warn);color:var(--warn);font-weight:600}
+.pill.vencida{border-color:var(--alert);color:var(--alert);font-weight:600}
+.bloco{display:block;padding:14px 0;border-top:1px solid var(--line)}
+.bloco>details>summary{list-style:none;cursor:pointer;position:relative;padding-right:24px}
+.bloco>details>summary::-webkit-details-marker{display:none}
+.bloco>details>summary::after{content:"";position:absolute;right:6px;top:50%;width:7px;height:7px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:translateY(-70%) rotate(45deg)}
+.bloco>details[open]>summary::after{transform:translateY(-30%) rotate(225deg)}
+.bloco>details>summary:hover{color:var(--accent)}
+.mais{margin-top:12px}
+.epocas-cli{margin:6px 0 4px;display:grid;gap:2px}
+.margem-linha{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:6px 0 10px;font-size:13px}
+.margem-linha label{display:flex;gap:6px;align-items:center;color:var(--muted)}
+.margem-linha input{width:76px}
+.alert-btn{display:inline-flex;align-items:center;gap:4px}
+#maq-sub{margin-top:-6px}
+#maq-sub button{font-size:13px;padding:6px 10px}
+.alert-panel{margin-top:4px;border-color:var(--warn)}
+.alerta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 0;border-top:1px solid var(--line)}
+.alerta:first-child{border-top:0}
+.badge{display:inline-block;min-width:18px;padding:0 6px;margin-left:6px;border-radius:999px;background:var(--alert);color:var(--bg);font-size:11px;font-weight:600;line-height:18px;text-align:center}
+input[type="checkbox"]{width:auto;padding:0;margin:0;accent-color:var(--accent);flex:0 0 auto}
+label.chk{display:flex;align-items:center;gap:10px;color:var(--fg);font-size:14px}
+.gear-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;padding:0;border-radius:50%;margin:0 0 6px}
+.gear-btn .ico{margin:0;width:18px;height:18px}
+.gear-btn[aria-selected="true"]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.cfg-corpo{padding-top:10px;display:grid;gap:10px}
+.cx-pos{color:var(--ok)}
+.cx-neg{color:var(--alert)}
+.gc-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:12px}
+.gc-bar{display:grid;grid-template-columns:minmax(110px,1fr) 3fr auto;gap:12px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
+.gc-bar:first-child{border-top:0}
+.gc-track{height:12px;background:var(--bg);border-radius:6px;overflow:hidden;min-width:0}
+.gc-fill{height:100%;background:var(--accent);border-radius:6px;min-width:2px}
+.gc-cols{display:grid;gap:8px}
+.gc-col{display:flex;flex-direction:column;min-width:0}
+.gc-area{height:220px;display:flex;align-items:flex-end;justify-content:center;border-bottom:1px solid var(--line)}
+.gc-col-fill{width:72%;max-width:44px;background:var(--accent);border-radius:6px 6px 0 0;min-height:2px}
+.gc-lbl{font-size:11px;color:var(--muted);text-align:center;margin-top:6px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.gc-lbl strong{display:block;color:var(--fg);font-weight:600}
+.gc-rosca{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.gc-rosca svg{width:180px;height:180px;flex:0 0 auto}
+.gc-legenda{list-style:none;padding:0;margin:0;display:grid;gap:6px;flex:1 1 200px;min-width:0}
+.gc-legenda li{display:flex;align-items:center;gap:8px;border-top:0;padding:4px 0;font-size:14px}
+.gc-sw{width:12px;height:12px;border-radius:3px;flex:0 0 auto}
+.gc-linha{width:100%;height:auto;display:block;color:var(--muted)}
+.gc-linha text{font-size:11px;fill:currentColor}
+#cx-ano tr.atual td{font-weight:600;background:var(--bg)}
+.rel-nav{align-items:center}
+.rel-nav label{display:flex;gap:6px;align-items:center;color:var(--muted)}
+.rel-nav label input{width:auto}
+.rel-nav>*{flex:0 0 auto}
+.ano-chart{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px;height:180px}
+.ano-col{display:flex;flex-direction:column;min-width:0;height:100%}
+.ano-barra{flex:1;display:flex;align-items:flex-end;min-height:0;border-bottom:1px solid var(--line)}
+.ano-fill{width:100%;background:var(--accent);border-radius:3px 3px 0 0;min-height:1px}
+.ano-col.atual .ano-fill{background:var(--fg)}
+.ano-mes{font-size:10px;color:var(--muted);text-align:center;margin-top:4px;overflow:hidden}
+.ano-col.atual .ano-mes{color:var(--fg);font-weight:600}
+.bar-row{display:grid;grid-template-columns:minmax(120px,1fr) 2fr auto;gap:12px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
+.bar-row:first-child{border-top:0}
+.bar-track{height:10px;background:var(--bg);border:1px solid var(--line);border-radius:999px;overflow:hidden;min-width:0}
+.bar-fill{height:100%;background:var(--ok);border-radius:999px}
+.bar-fill.breve{background:var(--warn)}
+.bar-fill.vencida{background:var(--alert)}
+@media (max-width:480px){.bar-row{grid-template-columns:1fr;gap:6px}.bar-row .mono{justify-self:end}}
+.mais>summary{cursor:pointer;padding:6px 0;list-style:revert}
+.bloco-topo{display:flex;justify-content:space-between;align-items:baseline;gap:8px 16px;flex-wrap:wrap}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 14px}
+.chip{font-size:12px;padding:2px 8px;border-radius:4px;background:var(--bg);border:1px solid var(--line);color:var(--fg)}
+.timeline{border-left:2px solid var(--line);margin-left:6px;padding-left:18px;display:grid;gap:16px}
+.tl-item{position:relative}
+.tl-item::before{content:"";position:absolute;left:-24px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.tl-data{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:14px}
+.tl-trab{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;padding:6px 0 2px;border-top:1px dashed var(--line);font-size:14px}
+.tl-total{font-size:13px;padding-top:4px;text-align:right}
+</style>
+
+<header>
+  <button type="button" class="gear-btn" data-act="tab" data-tab="conf" aria-label="Configurações" title="Configurações" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+  <h1>Trabalhos Agrícolas</h1>
+  <button type="button" id="alert-btn" class="alert-btn" data-act="alertas" aria-expanded="false" aria-controls="alert-panel">Alertas <span class="badge" id="alert-count" hidden>0</span></button>
+  <nav>
+    <button type="button" data-act="tab" data-tab="trab" aria-selected="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3h6v3H9z"/><path d="M9 12h6M9 16h4"/></svg>Trabalhos</button>
+    <button type="button" data-act="tab" data-tab="cli" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Clientes</button>
+    <button type="button" data-act="tab" data-tab="tip" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>Tipos</button>
+    <button type="button" data-act="tab" data-tab="prod" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg>Extras</button>
+    <button type="button" data-act="tab" data-tab="maq" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>Máquinas</button>
+    <button type="button" data-act="tab" data-tab="cx" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></svg>Caixa</button>
+    <button type="button" data-act="tab" data-tab="rel" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Relatório</button>
+  </nav>
+  <nav id="maq-sub" hidden>
+    <button type="button" data-act="tab" data-tab="maq" aria-selected="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg>Máquinas</button>
+    <button type="button" data-act="tab" data-tab="man" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L12 19l-3-3 7.7-7.7z"/><path d="M4 20l3-3"/></svg>Manutenção</button>
+  </nav>
+</header>
+<section id="alert-panel" class="card alert-panel" hidden>
+  <h2>Alertas ativos</h2>
+  <ul id="alert-list"></ul>
+</section>
+<p id="status" role="status"></p>
+
+<section id="tab-trab">
+  <div class="card">
+    <h2 id="j-title">Novo trabalho</h2>
+    <form id="f-job">
+      <input type="hidden" id="j-id">
+      <label>Data <input type="date" id="j-data"></label>
+      <label>Cliente <select id="j-cli"></select></label>
+      <label>Categoria <select id="j-cat"></select></label>
+      <label>Subcategoria <select id="j-sub" disabled></select></label>
+      <label>Tipo de trabalho <select id="j-tip" disabled></select></label>
+      <label>Horas <input type="number" id="j-h" min="0" step="1" inputmode="numeric" value="0"></label>
+      <label>Minutos <input type="number" id="j-m" min="0" max="59" step="1" inputmode="numeric" value="0"></label>
+      <label>Deslocação (€) <input type="number" id="j-desl" min="0" step="0.5" inputmode="decimal"></label>
+      <label>Gorjeta (€, não conta no total) <input type="number" id="j-gor" min="0" step="0.5" inputmode="decimal"></label>
+      <label class="full">Nota <input id="j-nota" maxlength="200"></label>
+      <div class="full">
+        <p class="sub">Itens extra</p>
+        <div class="row" style="margin-top:8px">
+          <select id="j-prod"></select>
+          <input type="number" id="j-qtd" min="0" step="0.5" inputmode="decimal" placeholder="Quantidade">
+          <button type="button" id="j-add-item">Adicionar</button>
+        </div>
+        <ul id="j-itens"></ul>
+      </div>
+      <p class="prev full" id="j-prev" aria-live="polite"></p>
+      <div class="row full">
+        <button class="primary" type="submit" id="j-save">Guardar trabalho</button>
+        <button type="button" id="j-clear">Limpar</button>
+        <button type="button" id="j-cancel" hidden>Cancelar edição</button>
+      </div>
+    </form>
+  </div>
+  <div class="card">
+    <h2>Últimos trabalhos</h2>
+    <ul id="j-list"></ul>
+  </div>
+</section>
+
+<section id="tab-cli" hidden>
+  <nav id="cli-sub">
+    <button type="button" data-act="cli-sub" data-v="criar" aria-selected="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Criar cliente</button>
+    <button type="button" data-act="cli-sub" data-v="hist" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>Histórico clientes</button>
+    <button type="button" data-act="cli-sub" data-v="conta" aria-selected="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg>Conta corrente</button>
+  </nav>
+  <div id="cli-criar">
+  <div class="card">
+    <h2>Cliente</h2>
+    <form id="f-cli">
+      <input type="hidden" id="c-id">
+      <label class="full">Nome <input id="c-nome" maxlength="80"></label>
+      <label>Contacto <input id="c-contacto" maxlength="80"></label>
+      <label>Morada <input id="c-morada" maxlength="160"></label>
+      <label>Deslocação por trabalho (€) <input type="number" id="c-desl" min="0" step="0.5" inputmode="decimal"></label>
+      <label>Agravamento por hora (€/h) <input type="number" id="c-ext" min="0" step="0.5" inputmode="decimal"></label>
+      <label>Desconto (%) <input type="number" id="c-desc" min="0" max="100" step="1" inputmode="decimal" placeholder="0 = cobra tudo · 100 = oferecido"></label>
+      <div class="row full">
+        <button class="primary" type="submit">Guardar cliente</button>
+        <button type="button" id="c-clear">Limpar</button>
+      </div>
+    </form>
+  </div>
+  <div class="card">
+    <h2>Clientes</h2>
+    <ul id="c-list"></ul>
+  </div>
+  </div>
+  <div id="cli-conta" hidden>
+    <div class="card">
+      <h2>Conta corrente</h2>
+      <div class="stats" id="cc-tot"></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Cliente</th><th class="num">Faturado</th><th class="num">Recebido</th><th class="num">Em dívida</th></tr></thead>
+          <tbody id="cc-tab"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Conta corrente do cliente</h2>
+      <label>Cliente <select id="cc-cli"></select></label>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Data</th><th>Movimento</th><th class="num">Débito</th><th class="num">Crédito</th><th class="num">Saldo</th><th></th></tr></thead>
+          <tbody id="cc-ledger"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Registar pagamento</h2>
+      <form id="f-rec">
+        <input type="hidden" id="rec-id">
+        <label>Cliente <select id="rec-cli"></select></label>
+        <label>Trabalho pago (opcional) <select id="rec-trab"></select></label>
+        <label>Data <input type="date" id="rec-data"></label>
+        <label>Valor recebido (€) <input type="number" id="rec-valor" min="0" step="0.01" inputmode="decimal"></label>
+        <label class="full">Forma de pagamento <select id="rec-forma"></select></label>
+        <div class="row full">
+          <button class="primary" type="submit">Guardar pagamento</button>
+          <button type="button" id="rec-clear">Limpar</button>
+        </div>
+      </form>
+    </div>
+    <div class="card">
+      <h2>Pagamentos recebidos</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Data</th><th>Cliente</th><th class="num">Valor</th><th></th></tr></thead>
+          <tbody id="cc-rec"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div id="cli-hist" hidden>
+    <div class="card">
+      <h2>Épocas detetadas nos teus trabalhos</h2>
+      <ul id="h-avisos"></ul>
+    </div>
+    <div class="card">
+      <h2>Histórico e previsão por cliente</h2>
+      <ul id="h-list"></ul>
+    </div>
+  </div>
+</section>
+
+<section id="tab-tip" hidden>
+  <nav id="tip-sub">
+    <button type="button" data-act="tip-sub" data-v="cat" aria-selected="true">Categorias</button>
+    <button type="button" data-act="tip-sub" data-v="sub" aria-selected="false">Subcategorias</button>
+    <button type="button" data-act="tip-sub" data-v="tip" aria-selected="false">Tipos de trabalho</button>
+  </nav>
+  <div id="tip-cat">
+  <div class="card">
+    <h2>Categorias</h2>
+    <form id="f-cat">
+      <input type="hidden" id="cat-id">
+      <label class="full">Nome <input id="cat-nome" maxlength="60"></label>
+      <div class="row full">
+        <button class="primary" type="submit">Guardar categoria</button>
+        <button type="button" id="cat-clear">Limpar</button>
+      </div>
+    </form>
+    <ul id="cat-list" style="margin-top:12px"></ul>
+  </div>
+  </div>
+  <div id="tip-sub-box" hidden>
+  <div class="card">
+    <h2>Subcategorias</h2>
+    <form id="f-sub">
+      <input type="hidden" id="sub-id">
+      <label class="full">Nome <input id="sub-nome" maxlength="80"></label>
+      <label class="full">Categoria <select id="sub-cat"></select></label>
+      <div class="row full">
+        <button class="primary" type="submit">Guardar subcategoria</button>
+        <button type="button" id="sub-clear">Limpar</button>
+      </div>
+    </form>
+    <ul id="sub-list" style="margin-top:12px"></ul>
+  </div>
+  </div>
+  <div id="tip-tip" hidden>
+  <div class="card">
+    <h2>Tipos de trabalho</h2>
+    <form id="f-tip">
+      <input type="hidden" id="t-id">
+      <label class="full">Nome <input id="t-nome" maxlength="80"></label>
+      <label>Subcategoria <select id="t-sub"></select></label>
+      <label>Tarifa padrão (€/h) <input type="number" id="t-tarifa" min="0" step="0.5" inputmode="decimal"></label>
+      <div class="full">
+        <p class="sub">Máquinas deste tipo (recebem as horas do trabalho automaticamente)</p>
+        <div id="t-maqs" class="row" style="margin-top:8px"></div>
+      </div>
+      <div class="row full">
+        <button class="primary" type="submit">Guardar tipo</button>
+        <button type="button" id="t-clear">Limpar</button>
+      </div>
+    </form>
+    <ul id="t-list" style="margin-top:12px"></ul>
+  </div>
+  </div>
+</section>
+
+<section id="tab-prod" hidden>
+  <div class="card">
+    <h2>Extras</h2>
+    <form id="f-prod">
+      <input type="hidden" id="p-id">
+      <label class="full">Nome <input id="p-nome" maxlength="80"></label>
+      <label>Cobrado por
+        <select id="p-unidade">
+          <option value="hora">Hora</option>
+          <option value="quantidade">Quantidade</option>
+        </select>
+      </label>
+      <label>Unidade (se quantidade) <input id="p-rotulo" maxlength="12" placeholder="ex.: ha, L, un"></label>
+      <label>Preço (€) <input type="number" id="p-preco" min="0" step="0.01" inputmode="decimal"></label>
+      <div class="row full">
+        <button class="primary" type="submit">Guardar produto</button>
+        <button type="button" id="p-clear">Limpar</button>
+      </div>
+    </form>
+    <ul id="p-list" style="margin-top:12px"></ul>
+  </div>
+</section>
+
+<section id="tab-maq" hidden>
+  <div class="card">
+    <h2 id="m-title">Nova máquina</h2>
+    <form id="f-maq">
+      <input type="hidden" id="m-id">
+      <label>Nome <input id="m-nome" maxlength="80" placeholder="ex.: Trator 1, Rachador"></label>
+      <label>Horas iniciais <input type="number" id="m-horas" min="0" step="0.5" inputmode="decimal" value="0"></label>
+      <label class="full">Nota <input id="m-nota" maxlength="160"></label>
+      <div class="row full">
+        <button class="primary" type="submit">Guardar máquina</button>
+        <button type="button" id="m-clear">Limpar</button>
+      </div>
+    </form>
+    <p class="muted" style="margin:10px 0 0">Horas iniciais: as horas que a máquina já tinha antes de começares a registá-las aqui (valor do horímetro). As horas dos trabalhos somam-se a este valor.</p>
+  </div>
+  <div class="card">
+    <h2>Máquinas e horas</h2>
+    <ul id="m-list"></ul>
+  </div>
+</section>
+
+<section id="tab-man" hidden>
+  <nav id="man-sub">
+    <button type="button" data-act="man-sub" data-v="pecas" aria-selected="true">Peças e tarefas</button>
+    <button type="button" data-act="man-sub" data-v="analise" aria-selected="false">Análise das revisões</button>
+  </nav>
+  <div class="card">
+    <label>Máquina <select id="man-maq"></select></label>
+  </div>
+  <div id="man-pecas">
+  <div class="card">
+    <h2>Peças e tarefas desta máquina</h2>
+    <ul id="man-list"></ul>
+  </div>
+  <div class="card">
+    <h2>Adicionar ou editar peça</h2>
+    <form id="f-man">
+      <input type="hidden" id="man-id">
+      <label class="full">Peça ou tarefa <input id="man-peca" maxlength="80" placeholder="ex.: Óleo do motor, Filtro do ar"></label>
+      <label>Troca a cada (horas) <input type="number" id="man-int" min="0" step="1" inputmode="numeric"></label>
+      <label>Avisar com antecedência (horas) <input type="number" id="man-aviso" min="0" step="1" inputmode="numeric" placeholder="vazio = 20 h"></label>
+      <label>Tempo a demorar (minutos) <input type="number" id="man-tempo" min="0" step="5" inputmode="numeric"></label>
+      <label>Custo da peça ou tarefa (€) <input type="number" id="man-custo" min="0" step="0.01" inputmode="decimal"></label>
+      <label>Última troca às (horas da máquina) <input type="number" id="man-ultima" min="0" step="0.5" inputmode="decimal" placeholder="vazio = horas atuais"></label>
+      <label class="full">Nota <input id="man-nota" maxlength="160"></label>
+      <div class="row full">
+        <button class="primary" type="submit">Guardar peça</button>
+        <button type="button" id="man-clear">Limpar</button>
+      </div>
+    </form>
+  </div>
+  </div>
+  <div id="man-analise" hidden>
+    <div class="card">
+      <h2>Alertas de manutenção</h2>
+      <ul id="an-alertas"></ul>
+    </div>
+    <div class="card">
+      <h2>Desgaste das peças desta máquina</h2>
+      <div id="an-desgaste"></div>
+    </div>
+    <div class="card">
+      <h2>Custo das peças por máquina</h2>
+      <div id="an-custo"></div>
+    </div>
+  </div>
+</section>
+
+<section id="tab-cx" hidden>
+  <div class="card">
+    <div class="row rel-nav">
+      <button type="button" data-act="rel-mes" data-d="-1">‹ Mês anterior</button>
+      <label>Mês <input type="month" id="cx-mes"></label>
+      <button type="button" data-act="rel-mes" data-d="1">Mês seguinte ›</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="stats" id="cx-tot"></div>
+  </div>
+  <div class="card">
+    <h2>Movimentos do mês</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Data</th><th>Categoria</th><th>Descrição</th><th class="num">Valor</th><th></th></tr></thead>
+        <tbody id="cx-mov"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Nova despesa</h2>
+    <form id="f-desp">
+      <input type="hidden" id="desp-id">
+      <label class="full">Categoria <select id="desp-cat"></select></label>
+      <label class="full">Descrição <input id="desp-desc" maxlength="120" placeholder="ex.: gasóleo do trator, seguro anual"></label>
+      <label>Data <input type="date" id="desp-data"></label>
+      <label>Valor (€) <input type="number" id="desp-valor" min="0" step="0.01" inputmode="decimal"></label>
+      <div class="row full">
+        <button class="primary" type="submit">Guardar despesa</button>
+        <button type="button" id="desp-clear">Limpar</button>
+      </div>
+    </form>
+  </div>
+  <div class="card">
+    <h2 id="cx-ano-titulo">Saldo por mês</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Mês</th><th class="num">Ganhos</th><th class="num">Despesas</th><th class="num">Saldo</th></tr></thead>
+        <tbody id="cx-ano"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="tab-conf" hidden>
+  <div class="card">
+    <h2>Configurações</h2>
+    <div class="bloco">
+      <details open>
+        <summary><strong>Caixa</strong> · categorias de despesa</summary>
+        <div class="cfg-corpo">
+          <form id="f-cat-cx">
+            <input type="hidden" id="cc-cat-id">
+            <label>Nome da categoria <input id="cc-cat-nome" maxlength="40" placeholder="ex.: Combustível, Seguros, Impostos"></label>
+            <div class="row">
+              <button class="primary" type="submit">Guardar categoria</button>
+              <button type="button" id="cc-cat-clear">Limpar</button>
+            </div>
+          </form>
+          <ul id="cc-cat-list"></ul>
+        </div>
+      </details>
+    </div>
+    <div class="bloco">
+      <details open>
+        <summary><strong>Recebimentos</strong> · formas de pagamento</summary>
+        <div class="cfg-corpo">
+          <form id="f-forma">
+            <input type="hidden" id="forma-id">
+            <label>Nome da forma <input id="forma-nome" maxlength="40" placeholder="ex.: Transferência, MB Way, Dinheiro, Cheque"></label>
+            <div class="row">
+              <button class="primary" type="submit">Guardar forma</button>
+              <button type="button" id="forma-clear">Limpar</button>
+            </div>
+          </form>
+          <ul id="forma-list"></ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="tab-rel" hidden>
+  <div class="card">
+    <div class="row rel-nav">
+      <button type="button" data-act="rel-mes" data-d="-1">‹ Mês anterior</button>
+      <label>Mês <input type="month" id="r-mes"></label>
+      <button type="button" data-act="rel-mes" data-d="1">Mês seguinte ›</button>
+      <button type="button" class="primary" data-act="rel-csv">Exportar CSV do mês</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="stats" id="r-tot"></div>
+  </div>
+  <div class="card">
+    <h2 id="r-ano-titulo">Ano</h2>
+    <div id="r-ano"></div>
+  </div>
+  <div class="card">
+    <h2>Gráfico personalizado</h2>
+    <div class="gc-controls">
+      <label>Medida <select id="gc-met"></select></label>
+      <label>Agrupar por <select id="gc-dim"></select></label>
+      <label>Período <select id="gc-per">
+        <option value="mes">Mês selecionado</option>
+        <option value="ano">Ano selecionado</option>
+        <option value="tudo">Todo o histórico</option>
+      </select></label>
+      <label>Tipo de gráfico <select id="gc-tipo">
+        <option value="barra">Barras horizontais</option>
+        <option value="coluna">Colunas</option>
+        <option value="linha">Linha</option>
+        <option value="rosca">Circular</option>
+      </select></label>
+    </div>
+    <div class="gc-controls gc-filtros">
+      <label>Filtrar cliente <select id="gc-f-cli"></select></label>
+      <label>Filtrar categoria <select id="gc-f-cat"></select></label>
+      <label>Filtrar tipo <select id="gc-f-tip"></select></label>
+    </div>
+    <p class="muted" id="gc-aviso"></p>
+    <div id="gc-chart"></div>
+    <details class="mais"><summary>Ver valores em tabela</summary>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Grupo</th><th class="num">Valor</th><th class="num">%</th><th class="num">Nº trabalhos</th></tr></thead>
+        <tbody id="gc-tab"></tbody>
+      </table></div>
+    </details>
+  </div>
+  <div class="card">
+    <h2>Por categoria</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Categoria</th><th class="num">Trabalhos</th><th class="num">Horas</th><th class="num">Total</th></tr></thead>
+        <tbody id="r-cat"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Por cliente</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Cliente</th><th class="num">Trab.</th><th class="num">Horas</th><th class="num">Total</th><th>Último</th><th>Próximo previsto</th></tr></thead>
+        <tbody id="r-cli"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Horas por máquina no mês</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Máquina</th><th class="num">Horas</th></tr></thead>
+        <tbody id="r-maq"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Itens extra e deslocações no mês</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Item</th><th class="num">Quantidade</th><th class="num">Total</th></tr></thead>
+        <tbody id="r-itens"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Cópia de segurança</h2>
+    <p class="muted" style="margin:0 0 12px">Cria no Google Drive um ficheiro novo com todos os trabalhos, com cliente, categoria, subcategoria, itens e valores. Cada cópia fica separada das anteriores.</p>
+    <button class="primary" type="button" data-act="backup">Guardar cópia no Google Drive</button>
+  </div>
+</section>
+
+<section id="tab-rec" hidden>
+  <div class="card">
+    <h2>Recibo</h2>
+    <p class="muted" id="rec-ref" style="margin:0 0 10px"></p>
+    <label class="full">Descrição no recibo
+      <textarea id="rec-desc" rows="4" maxlength="600"></textarea>
+    </label>
+    <div id="rec-doc"></div>
+    <div class="row" style="margin-top:14px">
+      <button class="primary" type="button" data-act="rec-save">Guardar ficheiro para imprimir</button>
+      <a class="btn" id="rec-wa" href="https://wa.me/" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+      <button type="button" data-act="rec-copy">Copiar texto</button>
+      <button type="button" data-act="rec-back">Voltar</button>
+    </div>
+    <p class="muted" style="margin:10px 0 0">Um recibo junta todos os trabalhos do mesmo cliente no mesmo dia. Para imprimir, guarda o ficheiro e abre-o no telemóvel ou no PC. Via WhatsApp, o texto abre na conversa do cliente se o contacto for um número de telemóvel.</p>
+  </div>
+  <div class="card">
+    <h2>Dados do prestador</h2>
+    <form id="f-prest">
+      <label>Nome <input id="pr-nome" maxlength="100"></label>
+      <label>NIF <input id="pr-nif" maxlength="20" inputmode="numeric"></label>
+      <label class="full">Morada <input id="pr-morada" maxlength="160"></label>
+      <label class="full">Contacto <input id="pr-contacto" maxlength="80"></label>
+      <div class="row full">
+        <button class="primary" type="submit">Guardar dados</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const eur = n => (Number(n) || 0).toLocaleString('pt-PT', {style:'currency', currency:'EUR'});
+const num = v => { const n = parseFloat(String(v ?? '').replace(',', '.')); return isFinite(n) ? n : 0; };
+const r2 = n => Math.round((Number(n) || 0) * 100) / 100;
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+const hoje = () => { const d = new Date(); return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10); };
+const fmtTempo = min => `${Math.floor(min / 60)} h ${String(min % 60).padStart(2, '0')} min`;
+const sorted = (obj, key) => Object.entries(obj).map(([id, v]) => ({id, ...v})).sort((a, b) => String(a[key] ?? '').localeCompare(String(b[key] ?? ''), 'pt'));
+const unidadeItem = i => i.unidade === 'hora' ? 'h' : (i.rotulo || 'un');
+
+const nomeC = id => S.clientes[id]?.nome ?? 'Cliente removido';
+const nomeT = id => S.tipos[id]?.nome ?? 'Tipo removido';
+const nomeS = id => S.subcategorias[id]?.nome ?? '';
+const nomeCat = id => S.categorias[id]?.nome ?? 'Sem categoria';
+const subsDaCat = catId => sorted(S.subcategorias, 'nome').filter(s => s.categoriaId === catId);
+const tiposDaSub = subId => sorted(S.tipos, 'nome').filter(t => t.subcategoriaId === subId);
+const caminhoSub = subId => { const s = S.subcategorias[subId]; return s ? `${nomeCat(s.categoriaId)} › ${s.nome}` : 'Sem subcategoria'; };
+
+const S = {clientes:{}, categorias:{}, subcategorias:{}, tipos:{}, extras:{}, maquinas:{}, manutencoes:{}, despesas:{}, recebimentos:{}, catsCaixa:{}, formasPagamento:{}, maqSel: [], tipoMaqSel: [], trabalhos:{}, config:{}, recKey: null, mes: hoje().slice(0, 7), pendingDel: null, itens: []};
+let db = null, mcp = null, msgT = null;
+
+function say(msg){
+  $('#status').textContent = msg;
+  clearTimeout(msgT);
+  msgT = setTimeout(() => { $('#status').textContent = ''; }, 5000);
+}
+function explainDb(e){
+  const c = e?.code;
+  if (c === 'quota_exceeded') return 'Limite da base de dados atingido. Apaga registos antigos.';
+  if (c === 'revoked' || c === 'invalid_argument') return 'Sem permissão para guardar nesta visualização.';
+  if (c === 'resource_exhausted') return 'Demasiados pedidos seguidos. Espera um momento e tenta outra vez.';
+  return 'Não foi possível guardar. Tenta outra vez.';
+}
+function explainMcp(e){
+  const c = e?.code;
+  if (c === 'server_not_connected' || c === 'selection_required') return 'Liga o Google Drive em Definições → Conectores.';
+  if (c === 'needs_reauth') return 'Volta a ligar o Google Drive em Definições → Conectores.';
+  if (c === 'approval_required' || c === 'cancelled') return 'Cópia cancelada. Carrega de novo e aprova o pedido.';
+  return 'Não foi possível criar a cópia. Tenta outra vez.';
+}
+async function run(fn, ok){
+  if (!db) { say('Sem acesso à base de dados nesta visualização.'); return false; }
+  try { await fn(); if (ok) say(ok); return true; }
+  catch (e) { say(explainDb(e)); return false; }
+}
+
+/* ---------- cálculo do trabalho ---------- */
+function calcJob(){
+  const min = Math.round(num($('#j-h').value) * 60 + num($('#j-m').value));
+  const c = S.clientes[$('#j-cli').value];
+  const t = S.tipos[$('#j-tip').value];
+  const base = t?.tarifa ?? 0;
+  const agrav = Number(c?.extras) || 0;
+  const tarifa = r2(base + agrav);
+  const valorTempo = r2(min / 60 * tarifa);
+  const itens = r2(S.itens.reduce((a, i) => a + i.subtotal, 0));
+  const bruto = r2(valorTempo + itens + num($('#j-desl').value));
+  const descontoPct = Math.min(100, Math.max(0, Number(c?.descontoPct) || 0));
+  const total = r2(bruto * (1 - descontoPct / 100)); // a gorjeta não entra no total
+  return {min, tarifa, valorTempo, itens, total, descontoPct};
+}
+function previewJob(){
+  const r = calcJob();
+  const aviso = r.tarifa ? '' : ' · sem tarifa definida';
+  $('#j-prev').textContent = `Tempo ${fmtTempo(r.min)} · ${eur(r.tarifa)}/h · tempo ${eur(r.valorTempo)} · itens ${eur(r.itens)} · total ${eur(r.total)}${r.descontoPct ? ' (desconto ' + r.descontoPct + '%)' : ''}${aviso}`;
+}
+function renderItens(){
+  $('#j-itens').innerHTML = S.itens.length ? S.itens.map((it, i) => `
+    <li>
+      <div>${esc(it.nome)} · ${it.quantidade} ${esc(unidadeItem(it))} × ${eur(it.preco)} = <span class="mono">${eur(it.subtotal)}</span></div>
+      <div class="acts"><button type="button" data-act="item-del" data-i="${i}">Remover</button></div>
+    </li>`).join('') : '<li><span class="empty">Sem itens extra neste trabalho.</span></li>';
+}
+
+/* ---------- selects em cascata: categoria > subcategoria > tipo ---------- */
+function fillSelect(sel, items, ph){
+  const el = $(sel);
+  const cur = el.value;
+  el.innerHTML = `<option value="">${ph}</option>` + items.map(i => `<option value="${esc(i.id)}">${esc(i.nome)}</option>`).join('');
+  el.value = items.some(i => i.id === cur) ? cur : '';
+}
+function fillCatJ(){
+  fillSelect('#j-cat', sorted(S.categorias, 'nome'), 'Escolhe a categoria');
+}
+function fillSubJ(){
+  const cat = $('#j-cat').value;
+  fillSelect('#j-sub', cat ? subsDaCat(cat) : [], 'Escolhe a subcategoria');
+  $('#j-sub').disabled = !cat;
+}
+function fillTipJ(){
+  const sub = $('#j-sub').value;
+  fillSelect('#j-tip', sub ? tiposDaSub(sub) : [], 'Escolhe o tipo');
+  $('#j-tip').disabled = !sub;
+}
+
+/* ---------- máquinas e horas ---------- */
+const nomeM = id => S.maquinas[id]?.nome ?? 'Máquina removida';
+const fmtHoras = h => `${(Number(h) || 0).toLocaleString('pt-PT', {maximumFractionDigits: 2})} h`;
+function horasMaquina(id){
+  const base = Number(S.maquinas[id]?.horasIniciais) || 0;
+  let min = 0;
+  Object.values(S.trabalhos).forEach(j => (j.maquinas || []).forEach(m => { if (m.maquinaId === id) min += Number(m.minutos) || 0; }));
+  return base + min / 60;
+}
+function renderMaqSel(){
+  if (!$('#j-maqs')) return;
+  $('#j-maqs').innerHTML = S.maqSel.length ? S.maqSel.map((m, i) => `
+    <li>
+      <div>${esc(nomeM(m.maquinaId))} · <span class="mono">${fmtTempo(m.minutos)}</span></div>
+      <div class="acts"><button type="button" data-act="maq-del" data-i="${i}">Remover</button></div>
+    </li>`).join('') : '<li><span class="empty">Sem máquinas associadas. Deixa vazio se o trabalho não usou máquina.</span></li>';
+}
+function renderTipMaqs(){
+  const list = sorted(S.maquinas, 'nome');
+  $('#t-maqs').innerHTML = list.length ? list.map(m => `
+    <label style="grid-template-columns:auto 1fr;align-items:center;color:var(--fg)">
+      <input type="checkbox" data-tmaq="${esc(m.id)}" ${S.tipoMaqSel.includes(m.id) ? 'checked' : ''} style="width:auto">
+      <span>${esc(m.nome)}</span>
+    </label>`).join('') : '<span class="muted">Ainda sem máquinas. Cria-as na aba Máquinas.</span>';
+}
+function autoMaq(){
+  if ($('#j-id').value) return;
+  const ids = S.tipos[$('#j-tip').value]?.maquinasIds || [];
+  const totalMin = Math.round(num($('#j-h').value) * 60 + num($('#j-m').value));
+  S.maqSel = ids.filter(id => S.maquinas[id]).map(id => ({maquinaId: id, minutos: totalMin}));
+  renderMaqSel();
+}
+function syncMaqMinutos(){
+  if ($('#j-id').value) return;
+  const totalMin = Math.round(num($('#j-h').value) * 60 + num($('#j-m').value));
+  S.maqSel = S.maqSel.map(m => ({...m, minutos: totalMin}));
+  renderMaqSel();
+}
+function renderMaq(){
+  const list = sorted(S.maquinas, 'nome');
+  $('#m-list').innerHTML = list.length ? list.map(m => {
+    const n = Object.values(S.trabalhos).filter(j => (j.maquinas || []).some(x => x.maquinaId === m.id)).length;
+    return `
+    <li>
+      <div><strong>${esc(m.nome)}</strong> <span class="mono">${fmtHoras(horasMaquina(m.id))}</span>
+        <div class="muted">Inicial ${fmtHoras(m.horasIniciais)} · ${n} trabalho(s)${m.nota ? ' · ' + esc(m.nota) : ''}</div>
+      </div>
+      ${acts('maquinas', m.id, m.nome)}
+    </li>`;
+  }).join('') : '<li><span class="empty">Ainda sem máquinas. Adiciona a primeira acima.</span></li>';
+}
+
+/* ---------- manutenção ---------- */
+function renderMan(){
+  fillSelect('#man-maq', sorted(S.maquinas, 'nome'), 'Escolhe a máquina');
+  const mid = $('#man-maq').value;
+  const lista = $('#man-list');
+  if (!mid) { lista.innerHTML = '<li><span class="empty">Escolhe uma máquina para ver as suas manutenções.</span></li>'; return; }
+  const horas = horasMaquina(mid);
+  const itens = sorted(S.manutencoes, 'peca').filter(m => m.maquinaId === mid);
+  const eur = v => (Number(v) || 0).toLocaleString('pt-PT', {style: 'currency', currency: 'EUR'});
+  const totalCusto = itens.reduce((s, m) => s + (Number(m.custo) || 0), 0);
+  lista.innerHTML = `<li class="grupo">${esc(nomeM(mid))} · ${fmtHoras(horas)} atuais · custo das peças ${eur(totalCusto)}</li>` + (itens.length ? itens.map(it => {
+    const prox = (Number(it.ultimaH) || 0) + (Number(it.intervaloH) || 0);
+    const falta = r2(prox - horas);
+    const [classe, rotulo] = falta <= 0 ? ['vencida', 'Vencida'] : falta <= avisoDe(it) ? ['breve', 'Em breve'] : ['', 'OK'];
+    return `
+    <li>
+      <div><strong>${esc(it.peca)}</strong><span class="pill ${classe}">${rotulo}</span>
+        <div class="muted">Troca a cada ${fmtHoras(it.intervaloH)} · demora ${fmtTempo(Number(it.tempoMin) || 0)} · custo ${eur(it.custo)}</div>
+        <div class="muted">Última às ${fmtHoras(it.ultimaH)}${it.ultimaData ? ' (' + esc(it.ultimaData) + ')' : ''} · próxima às ${fmtHoras(prox)} · ${falta > 0 ? 'faltam ' + fmtHoras(falta) : 'em atraso ' + fmtHoras(-falta)}</div>
+        ${it.nota ? `<div class="muted">${esc(it.nota)}</div>` : ''}
+      </div>
+      <div class="acts"><button type="button" class="primary" data-act="man-feito" data-id="${esc(it.id)}">${ico('check')}Feito agora</button></div>
+      ${acts('manutencoes', it.id, it.peca)}
+    </li>`;
+  }).join('') : '<li><span class="empty">Sem peças nesta máquina. Adiciona a primeira abaixo.</span></li>');
+}
+async function marcarFeito(id){
+  const it = S.manutencoes[id];
+  if (!it) return;
+  const horas = r2(horasMaquina(it.maquinaId));
+  const custo = r2(Number(it.custo) || 0);
+  await run(async () => {
+    await db.collection('manutencoes').doc(id).set({...it, ultimaH: horas, ultimaData: hoje()});
+    if (custo > 0) {
+      await db.collection('despesas').doc(`man-${id}-${hoje()}`).set({
+        data: hoje(), descricao: `Manutenção · ${it.peca} · ${nomeM(it.maquinaId)}`, categoria: 'Manutenção',
+        valor: custo, origem: 'manutencao', manutencaoId: id, criadoEm: Date.now(),
+      });
+    }
+  }, `${it.peca}: troca registada às ${fmtHoras(horas)}.`);
+}
+
+/* ---------- desenho ---------- */
+const ICONS = {
+  edit: '<path d="M4 20h4L19 9l-4-4L4 16z"/>',
+  trash: '<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>',
+  check: '<path d="M5 12l5 5 9-10"/>',
+  receipt: '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/>',
+};
+const ico = n => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n]}</svg>`;
+function acts(col, id, nome){
+  const p = S.pendingDel;
+  if (p && p.col === col && p.id === id) {
+    return `<div class="confirm" role="alertdialog" aria-label="Confirmar apagar">
+      <span>Apagar <strong>${esc(nome)}</strong>? Não se pode desfazer.</span>
+      <span class="acts">
+        <button type="button" class="danger" data-act="del-ok">Sim, apagar</button>
+        <button type="button" data-act="del-no">Não, manter</button>
+      </span>
+    </div>`;
+  }
+  return `<div class="acts">
+        <button type="button" data-act="edit" data-col="${col}" data-id="${esc(id)}">${ico('edit')}Editar</button>
+        <button type="button" data-act="del-ask" data-col="${col}" data-id="${esc(id)}">${ico('trash')}Apagar</button>
+      </div>`;
+}
+function renderJobs(){
+  fillSelect('#j-cli', sorted(S.clientes, 'nome'), 'Escolhe o cliente');
+  fillSelect('#j-prod', sorted(S.extras, 'nome'), 'Escolhe o produto');
+  fillCatJ();
+  fillSubJ();
+  fillTipJ();
+  const list = Object.entries(S.trabalhos)
+    .sort((a, b) => (b[1].data || '').localeCompare(a[1].data || '') || (b[1].criadoEm || 0) - (a[1].criadoEm || 0))
+    .slice(0, 40);
+  $('#j-list').innerHTML = list.length ? list.map(([id, j]) => {
+    const caminho = [nomeCat(j.categoriaId), nomeS(j.subcategoriaId)].filter(Boolean).join(' › ');
+    const irmaos = trabalhosDoRecibo(j.clienteId, j.data).length;
+    return `
+    <li>
+      <div><strong>${esc(nomeC(j.clienteId))}</strong> · ${esc(nomeT(j.tipoId))} <span class="muted">(${esc(caminho)})</span>
+        <div class="muted"><span class="mono">${esc(j.data)}</span> · ${fmtTempo(j.minutos)} · <span class="mono">${eur(totalSemGorjeta(j))}</span> · <span class="muted">${esc(estadoTxt(id, j))}</span>${(j.itens || []).length ? ' · ' + j.itens.length + ' item(ns) extra' : ''}${j.nota ? ' · ' + esc(j.nota) : ''}</div>
+      </div>
+      <div class="acts"><button type="button" class="${faltaTrab(id, j) <= 0 ? 'primary' : ''}" data-act="pagar-trab" data-id="${esc(id)}">${ico('check')}${faltaTrab(id, j) <= 0 ? 'Pago' : (pagoTrab(id) > 0 ? 'Pagar restante' : 'Registar pagamento')}</button><button type="button" data-act="recibo" data-id="${esc(id)}">${ico('receipt')}Recibo do dia${irmaos > 1 ? ' (' + irmaos + ')' : ''}</button></div>
+      ${acts('trabalhos', id, nomeC(j.clienteId) + ' de ' + j.data)}
+    </li>`;
+  }).join('') : '<li><span class="empty">Ainda sem trabalhos. Preenche o formulário acima para registar o primeiro.</span></li>';
+  renderItens();
+  renderMaqSel();
+}
+/* ---------- histórico e previsão por cliente ---------- */
+const DIAS_AVISO = 14; // a partir de quantos dias antes da data prevista se avisa
+const fmtData = d => { if (!d) return ''; const [a, m, j] = d.split('-'); return `${j}/${m}/${a}`; };
+const diasEntre = (a, b) => Math.round((new Date(b) - new Date(a)) / 86400000);
+function previsaoCliente(clienteId){
+  const datas = [...new Set(Object.values(S.trabalhos).filter(t => t.clienteId === clienteId && t.data).map(t => t.data))].sort();
+  if (!datas.length) return {n: 0, datas};
+  const ultima = datas[datas.length - 1];
+  if (datas.length < 2) return {n: 1, datas, ultima};
+  const intervalos = datas.slice(1).map((d, i) => diasEntre(datas[i], d));
+  const media = Math.round(intervalos.reduce((s, x) => s + x, 0) / intervalos.length);
+  const prox = new Date(new Date(ultima).getTime() + media * 86400000).toISOString().slice(0, 10);
+  const faltam = diasEntre(hoje(), prox);
+  return {n: datas.length, datas, ultima, media, prox, faltam};
+}
+function trabalhosDoDia(clienteId, data){
+  return Object.values(S.trabalhos)
+    .filter(t => t.clienteId === clienteId && t.data === data)
+    .map(t => `${esc(S.tipos[t.tipoId]?.nome ?? 'Tipo removido')} · ${fmtTempo(Number(t.minutos) || 0)} · ${eur(totalSemGorjeta(t))}`)
+    .join('<br>');
+}
+function renderCli(){
+  renderHist();
+  const list = sorted(S.clientes, 'nome');
+  $('#c-list').innerHTML = list.length ? list.map(c => `
+    <li>
+      <div><strong>${esc(c.nome)}</strong>
+        <div class="muted">${esc(c.contacto)}${c.morada ? ' · ' + esc(c.morada) : ''}</div>
+        <div class="muted">Deslocação ${eur(c.deslocacao)} por trabalho · Agravamento ${eur(c.extras)}/h${c.descontoPct ? ' · Desconto ' + c.descontoPct + '%' : ''}</div>
+      </div>
+      ${acts('clientes', c.id, c.nome)}
+    </li>`).join('') : '<li><span class="empty">Ainda sem clientes. Adiciona o primeiro acima.</span></li>';
+}
+function showMan(v){
+  $('#man-pecas').hidden = v !== 'pecas';
+  $('#man-analise').hidden = v !== 'analise';
+  document.querySelectorAll('[data-act="man-sub"]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.v === v)));
+}
+/* Análise: desgaste de cada peça da máquina escolhida, e custo acumulado por máquina. */
+/* Horas de antecedência do aviso de cada peça (20 h se não configurado). */
+const avisoDe = it => (it.avisoH === undefined || it.avisoH === null || it.avisoH === '') ? 20 : (Number(it.avisoH) || 0);
+/* Lista única de alertas ativos: manutenções e épocas, visível em qualquer separador. */
+function alertasAtivos(){
+  const itens = [];
+  const porMaq = {};
+  Object.values(S.manutencoes).forEach(it => {
+    if (!S.maquinas[it.maquinaId]) return;
+    const falta = r2((Number(it.ultimaH) || 0) + (Number(it.intervaloH) || 0) - horasMaquina(it.maquinaId));
+    if (falta > avisoDe(it)) return;
+    const a = porMaq[it.maquinaId] || {vencidas: 0, breves: 0, pior: null};
+    if (falta <= 0) a.vencidas++; else a.breves++;
+    if (!a.pior || falta < a.pior.falta) a.pior = {peca: it.peca, falta};
+    porMaq[it.maquinaId] = a;
+  });
+  Object.entries(porMaq)
+    .sort((a, b) => a[1].pior.falta - b[1].pior.falta)
+    .forEach(([id, a]) => itens.push({
+      tipo: 'man', id, titulo: nomeM(id),
+      detalhe: `${[a.vencidas ? `${a.vencidas} vencida(s)` : '', a.breves ? `${a.breves} em breve` : ''].filter(Boolean).join(' · ')} · mais urgente: ${a.pior.peca} (${a.pior.falta <= 0 ? 'em atraso ' + fmtHoras(-a.pior.falta) : 'faltam ' + fmtHoras(a.pior.falta)})`,
+    }));
+  padroesSazonais()
+    .filter(p => S.clientes[p.clienteId] && S.tipos[p.tipoId])
+    .map(p => ({p, r: proximaEpoca(p)}))
+    .filter(x => x.r.estado !== 'futura')
+    .sort((a, b) => a.r.d - b.r.d)
+    .forEach(({p, r}) => itens.push({
+      tipo: 'epoca', id: p.clienteId,
+      titulo: `${S.clientes[p.clienteId].nome} · ${labelEpoca(p)}`,
+      detalhe: r.estado === 'aberta'
+        ? `Janela aberta · alvo ${fmtData(r.alvo)} ±${r.margem} dias`
+        : `Abre em ${r.d - r.margem} dias · ${fmtData(r.alvo)}`,
+    }));
+  return itens;
+}
+function renderAlertaPanel(){
+  const itens = alertasAtivos();
+  const n = itens.length;
+  $('#alert-count').textContent = n;
+  $('#alert-count').hidden = !n;
+  $('#alert-list').innerHTML = n
+    ? itens.map(it => `
+      <li class="alerta">
+        <div><strong>${esc(it.titulo)}</strong>
+          <span class="pill ${it.tipo === 'man' ? 'breve' : ''}">${it.tipo === 'man' ? 'Manutenção' : 'Época'}</span>
+          <div class="muted">${esc(it.detalhe)}</div>
+        </div>
+        <button type="button" data-act="alerta-ir" data-tipo="${it.tipo}" data-id="${esc(it.id)}">Ver</button>
+      </li>`).join('')
+    : '<li><span class="empty">Nenhum alerta ativo.</span></li>';
+}
+function toggleAlertas(){
+  const painel = $('#alert-panel');
+  painel.hidden = !painel.hidden;
+  $('#alert-btn').setAttribute('aria-expanded', String(!painel.hidden));
+}
+function irAlerta(tipo, id){
+  $('#alert-panel').hidden = true;
+  $('#alert-btn').setAttribute('aria-expanded', 'false');
+  if (tipo === 'man') { show('man'); showMan('analise'); analisarMaquina(id); }
+  else { show('cli'); showCli('hist'); }
+}
+function analisarMaquina(id){
+  $('#man-maq').value = id;
+  renderMan();
+  renderAnalise();
+}
+function renderAlertas(){
+  const porMaq = {};
+  Object.values(S.manutencoes).forEach(it => {
+    const falta = r2((Number(it.ultimaH) || 0) + (Number(it.intervaloH) || 0) - horasMaquina(it.maquinaId));
+    if (falta > avisoDe(it) || !S.maquinas[it.maquinaId]) return;
+    const a = porMaq[it.maquinaId] || {vencidas: 0, breves: 0, pior: null};
+    if (falta <= 0) a.vencidas++; else a.breves++;
+    if (!a.pior || falta < a.pior.falta) a.pior = {peca: it.peca, falta};
+    porMaq[it.maquinaId] = a;
+  });
+  const lista = Object.entries(porMaq).sort((a, b) => a[1].pior.falta - b[1].pior.falta);
+  $('#an-alertas').innerHTML = lista.length
+    ? lista.map(([id, a]) => `
+      <li class="alerta">
+        <div><strong>${esc(nomeM(id))}</strong>
+          <div class="muted">${[a.vencidas ? `${a.vencidas} vencida(s)` : '', a.breves ? `${a.breves} em breve` : ''].filter(Boolean).join(' · ')}
+            · mais urgente: ${esc(a.pior.peca)} (${a.pior.falta <= 0 ? 'em atraso ' + fmtHoras(-a.pior.falta) : 'faltam ' + fmtHoras(a.pior.falta)})</div>
+        </div>
+        <button type="button" class="primary" data-act="an-maq" data-id="${esc(id)}">Analisar</button>
+      </li>`).join('')
+    : '<li><span class="empty">Nenhuma máquina precisa de atenção. Aparecem aqui peças vencidas ou com 20 h ou menos para a troca.</span></li>';
+  const botao = document.querySelector('[data-tab="man"]');
+  if (botao) {
+    botao.querySelector('.badge')?.remove();
+    if (lista.length) botao.insertAdjacentHTML('beforeend', `<span class="badge">${lista.length}</span>`);
+  }
+}
+function renderAnalise(){
+  renderAlertas();
+  const eurA = v => (Number(v) || 0).toLocaleString('pt-PT', {style: 'currency', currency: 'EUR'});
+  const mid = $('#man-maq').value;
+  const horas = mid ? horasMaquina(mid) : 0;
+  const itens = mid ? sorted(S.manutencoes, 'peca').filter(m => m.maquinaId === mid) : [];
+  $('#an-desgaste').innerHTML = !mid
+    ? '<span class="empty">Escolhe uma máquina na lista de cima.</span>'
+    : itens.length ? itens.map(it => {
+        const intervalo = Number(it.intervaloH) || 1;
+        const usado = Math.max(0, horas - (Number(it.ultimaH) || 0));
+        const pct = usado / intervalo * 100;
+        const falta = r2((Number(it.ultimaH) || 0) + intervalo - horas);
+        const classe = falta <= 0 ? 'vencida' : falta <= avisoDe(it) ? 'breve' : '';
+        return `
+        <div class="bar-row">
+          <div><strong>${esc(it.peca)}</strong><div class="muted">${fmtHoras(usado)} de ${fmtHoras(intervalo)}</div></div>
+          <div class="bar-track"><div class="bar-fill ${classe}" style="width:${Math.min(pct, 100).toFixed(1)}%"></div></div>
+          <div class="mono">${Math.round(pct)}%</div>
+        </div>`;
+      }).join('')
+    : '<span class="empty">Sem peças nesta máquina.</span>';
+  const custos = sorted(S.maquinas, 'nome').map(m => ({
+    nome: m.nome,
+    total: Object.values(S.manutencoes).filter(x => x.maquinaId === m.id).reduce((s, x) => s + (Number(x.custo) || 0), 0),
+  }));
+  const max = Math.max(1, ...custos.map(c => c.total));
+  $('#an-custo').innerHTML = custos.length
+    ? custos.map(c => `
+        <div class="bar-row">
+          <div><strong>${esc(c.nome)}</strong></div>
+          <div class="bar-track"><div class="bar-fill" style="width:${(c.total / max * 100).toFixed(1)}%"></div></div>
+          <div class="mono">${eurA(c.total)}</div>
+        </div>`).join('')
+    : '<span class="empty">Ainda sem máquinas.</span>';
+}
+function showTip(v){
+  $('#tip-cat').hidden = v !== 'cat';
+  $('#tip-sub-box').hidden = v !== 'sub';
+  $('#tip-tip').hidden = v !== 'tip';
+  document.querySelectorAll('[data-act="tip-sub"]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.v === v)));
+}
+function showCli(v){
+  $('#cli-criar').hidden = v !== 'criar';
+  $('#cli-hist').hidden = v !== 'hist';
+  $('#cli-conta').hidden = v !== 'conta';
+  document.querySelectorAll('[data-act="cli-sub"]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.v === v)));
+}
+/* Total de um trabalho sem gorjeta, calculado a partir dos valores guardados (inclui trabalhos antigos). */
+const totalBruto = j => r2((Number(j.valorTempo) || 0) + (Number(j.itensTotal) || 0) + (Number(j.deslocacao) || 0));
+const totalSemGorjeta = j => r2(totalBruto(j) * (1 - (Number(j.descontoPct) || 0) / 100));
+/* trabalho com 100% de desconto: não é faturado, mas o tempo conta para as máquinas */
+const naoFaturado = j => (Number(j.descontoPct) || 0) >= 100;
+const fatorFat = j => 1 - Math.min(100, Math.max(0, Number(j.descontoPct) || 0)) / 100;
+const fmtMes = m => { const [a, mm] = m.split('-'); return `${mm}/${a}`; };
+function estadoPrevisao(p){
+  if (p.n >= 2) {
+    const f = p.faltam;
+    const [classe, rotulo] = f < -DIAS_AVISO ? ['vencida', `Sem pedido há ${-f} dias`]
+      : f < 0 ? ['breve', `Já devia ter pedido há ${-f} dias`]
+      : f <= DIAS_AVISO ? ['breve', `Pode pedir em breve · ~${fmtData(p.prox)}`]
+      : ['', `Próximo previsto ~${fmtData(p.prox)}`];
+    return `<span class="pill ${classe}">${rotulo}</span>`;
+  }
+  if (p.n === 1) return '<span class="pill">Falta um segundo trabalho para prever</span>';
+  return '';
+}
+/* ---------- épocas de trabalho (datas do ano) ---------- */
+const DIAS_EPOCA_AVISO = 30;
+const MESES = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const fimDoMes = (ano, mes) => new Date(ano, mes, 0).getDate();
+function proximaEpoca(ep, ref = hoje()){
+  const margem = Number(ep.margem) || 0;
+  const ano = Number(ref.slice(0, 4));
+  const opcoes = [ano - 1, ano, ano + 1].map(y => {
+    const dia = Math.min(Number(ep.dia), fimDoMes(y, Number(ep.mes)));
+    const alvo = `${y}-${String(ep.mes).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+    return {alvo, d: diasEntre(ref, alvo)};
+  });
+  const prox = opcoes.filter(o => o.d >= -margem).sort((a, b) => a.d - b.d)[0];
+  const estado = Math.abs(prox.d) <= margem ? 'aberta' : (prox.d - margem <= DIAS_EPOCA_AVISO ? 'breve' : 'futura');
+  return {alvo: prox.alvo, d: prox.d, margem, estado};
+}
+const labelEpoca = ep => {
+  const tipo = S.tipos[ep.tipoId]?.nome;
+  return [tipo, ep.nota].filter(Boolean).join(' · ') || 'Época';
+};
+function pillEpoca(r){
+  if (r.estado === 'aberta') return `<span class="pill breve">Janela aberta · alvo ${fmtData(r.alvo)} ±${r.margem} dias</span>`;
+  if (r.estado === 'breve') return `<span class="pill breve">Abre em ${r.d - r.margem} dias · ${fmtData(r.alvo)}</span>`;
+  return `<span class="pill">Próxima ~${fmtData(r.alvo)} ±${r.margem} dias</span>`;
+}
+function doyDe(d){
+  const [a, m, j] = d.split('-').map(Number);
+  return Math.round((Date.UTC(a, m - 1, j) - Date.UTC(a, 0, 0)) / 86400000);
+}
+/* Deteta sozinho os trabalhos que se repetem na mesma altura do ano.
+   Critério: o mesmo cliente e tipo, com trabalho em pelo menos 2 anos,
+   e cada ano com uma data a até 30 dias da data mediana. */
+function padroesSazonais(){
+  const grupos = {};
+  Object.values(S.trabalhos).forEach(t => {
+    if (!t.data || !t.clienteId || !t.tipoId) return;
+    const k = `${t.clienteId}|${t.tipoId}`;
+    (grupos[k] = grupos[k] || []).push(t.data);
+  });
+  const padroes = [];
+  Object.entries(grupos).forEach(([k, lista]) => {
+    const datas = [...new Set(lista)].sort();
+    const anos = [...new Set(datas.map(d => d.slice(0, 4)))];
+    if (anos.length < 2) return;
+    const ordenadas = [...datas].sort((a, b) => doyDe(a) - doyDe(b));
+    const med = ordenadas[Math.floor(ordenadas.length / 2)];
+    const dm = doyDe(med);
+    const maisProximo = {};
+    datas.forEach(d => {
+      const a = d.slice(0, 4);
+      maisProximo[a] = Math.min(maisProximo[a] ?? Infinity, Math.abs(doyDe(d) - dm));
+    });
+    const pior = Math.max(...Object.values(maisProximo));
+    if (pior > 60) return;
+    const [clienteId, tipoId] = k.split('|');
+    padroes.push({
+      clienteId, tipoId,
+      mes: Number(med.slice(5, 7)), dia: Number(med.slice(8, 10)),
+      chave: k,
+      margemAuto: Math.min(30, Math.max(7, pior)),
+      margem: Number(S.config.margens?.[k]) || Math.min(30, Math.max(7, pior)),
+      anos: anos.length,
+    });
+  });
+  return padroes;
+}
+async function guardarMargem(key, valor){
+  const v = Math.round(num(valor));
+  if (v < 0 || v > 120) return say('A margem tem de estar entre 0 e 120 dias.');
+  await run(() => db.collection('config').doc('margens').set({...(S.config.margens || {}), [key]: v}), 'Margem guardada.');
+}
+function renderAvisos(padroes){
+  const itens = padroes
+    .filter(ep => S.clientes[ep.clienteId] && S.tipos[ep.tipoId])
+    .map(ep => ({ep, r: proximaEpoca(ep)}))
+    .filter(x => x.r.estado !== 'futura')
+    .sort((a, b) => a.r.d - b.r.d);
+  $('#h-avisos').innerHTML = itens.length ? itens.map(({ep, r}) => `
+    <li>
+      <div><strong>${esc(S.clientes[ep.clienteId].nome)}</strong> <span class="muted">${esc(labelEpoca(ep))} · repete-se há ${ep.anos} anos</span>
+        <div>${pillEpoca(r)}</div>
+      </div>
+    </li>`).join('')
+    : `<li><span class="empty">Nenhuma época perto. Aparece aqui ${DIAS_EPOCA_AVISO} dias antes da janela, quando um trabalho se repetir na mesma altura em pelo menos 2 anos.</span></li>`;
+}
+function renderHist(){
+  const padroes = padroesSazonais();
+  renderAvisos(padroes);
+  const abertos = new Set([...document.querySelectorAll('#h-list details[open]')].map(d => d.dataset.cid));
+  const list = sorted(S.clientes, 'nome');
+  $('#h-list').innerHTML = list.length ? list.map(c => {
+    const p = previsaoCliente(c.id);
+    if (!p.n) return `<li class="bloco"><strong>${esc(c.nome)}</strong><div class="muted">Sem trabalhos registados</div></li>`;
+    const trabs = Object.values(S.trabalhos).filter(t => t.clienteId === c.id && t.data);
+    const totalGeral = trabs.reduce((s, t) => s + totalSemGorjeta(t), 0);
+    const meses = {};
+    trabs.forEach(t => { const m = t.data.slice(0, 7); meses[m] = (meses[m] || 0) + totalSemGorjeta(t); });
+    const chips = Object.keys(meses).sort().reverse()
+      .map(m => `<span class="chip mono">${fmtMes(m)} · ${eur(meses[m])}</span>`).join('');
+    const epocasCli = padroes.filter(e => e.clienteId === c.id)
+      .map(e => `
+        <div class="tl-trab"><span>${esc(labelEpoca(e))}</span>${pillEpoca(proximaEpoca(e))}</div>
+        <div class="margem-linha">
+          <label>Margem ± <input type="number" min="0" max="120" value="${e.margem}" inputmode="numeric"> dias</label>
+          <button type="button" data-act="margem-save" data-key="${esc(e.chave)}">Guardar margem</button>
+          <span class="muted">${S.config.margens?.[e.chave] ? 'escolhida por ti' : 'automática'}</span>
+        </div>`).join('');
+    const datasDesc = [...p.datas].reverse();
+    const itens = datasDesc.map((d, i) => {
+      const anterior = datasDesc[i + 1];
+      const intervalo = anterior ? `<span class="muted">${diasEntre(anterior, d)} dias antes</span>` : '<span class="muted">primeiro registo</span>';
+      const doDia = trabs.filter(t => t.data === d);
+      const totalDia = doDia.reduce((s, t) => s + totalSemGorjeta(t), 0);
+      const linhas = doDia.map(t => `
+        <div class="tl-trab">
+          <span>${esc(S.tipos[t.tipoId]?.nome ?? 'Tipo removido')}</span>
+          <span class="muted mono">${fmtTempo(Number(t.minutos) || 0)}</span>
+          <span class="mono">${eur(totalSemGorjeta(t))}</span>
+        </div>`).join('');
+      return `
+        <div class="tl-item">
+          <div class="tl-data"><strong class="mono">${fmtData(d)}</strong> ${intervalo}</div>
+          ${linhas}
+          <div class="muted tl-total">Total do dia <span class="mono">${eur(totalDia)}</span></div>
+        </div>`;
+    });
+    const recentes = itens.slice(0, 5).join('');
+    const antigas = itens.slice(5).join('');
+    const timeline = `<div class="timeline">${recentes}</div>${antigas
+      ? `<details class="mais"><summary class="muted">Ver ${itens.length - 5} dias anteriores</summary><div class="timeline">${antigas}</div></details>`
+      : ''}`;
+    return `
+    <li class="bloco">
+      <details data-cid="${c.id}">
+        <summary class="bloco-topo">
+          <div><strong>${esc(c.nome)}</strong> ${estadoPrevisao(p)}</div>
+          <div class="muted">último ${fmtData(p.ultima)} · ${p.n} dia(s) · total <span class="mono">${eur(totalGeral)}</span></div>
+        </summary>
+        ${epocasCli ? `<div class="epocas-cli">${epocasCli}</div>` : ''}
+        <div class="chips">${chips}</div>
+        ${timeline}
+      </details>
+    </li>`;
+  }).join('') : '<li><span class="empty">Ainda sem clientes. Adiciona o primeiro acima.</span></li>';
+  document.querySelectorAll('#h-list details[data-cid]').forEach(d => { d.open = abertos.has(d.dataset.cid); });
+}
+function renderCat(){
+  const list = sorted(S.categorias, 'nome');
+  $('#cat-list').innerHTML = list.length ? list.map(c => {
+    const n = subsDaCat(c.id).length;
+    return `<li><div><strong>${esc(c.nome)}</strong> <span class="muted">${n} subcategoria(s)</span></div>${acts('categorias', c.id, c.nome)}</li>`;
+  }).join('') : '<li><span class="empty">Ainda sem categorias. Cria a primeira acima.</span></li>';
+}
+function renderSub(){
+  fillSelect('#sub-cat', sorted(S.categorias, 'nome'), 'Escolhe a categoria');
+  const cats = sorted(S.categorias, 'nome');
+  const orfas = sorted(S.subcategorias, 'nome').filter(s => !S.categorias[s.categoriaId]);
+  const grupos = [...cats.map(c => [nomeCat(c.id), subsDaCat(c.id)]), ['Sem categoria', orfas]].filter(([, g]) => g.length);
+  $('#sub-list').innerHTML = grupos.length ? grupos.map(([titulo, g]) => `
+    <li class="grupo">${esc(titulo)}</li>` + g.map(s => `
+    <li>
+      <div>${esc(s.nome)} <span class="muted">${tiposDaSub(s.id).length} tipo(s)</span></div>
+      ${acts('subcategorias', s.id, s.nome)}
+    </li>`).join('')).join('') : '<li><span class="empty">Ainda sem subcategorias. Cria uma dentro de uma categoria.</span></li>';
+}
+function renderTip(){
+  const subs = [...sorted(S.categorias, 'nome').flatMap(c => subsDaCat(c.id)), ...sorted(S.subcategorias, 'nome').filter(s => !S.categorias[s.categoriaId])];
+  fillSelect('#t-sub', subs.map(s => ({id: s.id, nome: caminhoSub(s.id)})), 'Escolhe a subcategoria');
+  const grupos = subs.map(s => [caminhoSub(s.id), tiposDaSub(s.id)]);
+  const orfaos = sorted(S.tipos, 'nome').filter(t => !S.subcategorias[t.subcategoriaId]);
+  if (orfaos.length) grupos.push(['Sem subcategoria', orfaos]);
+  const visiveis = grupos.filter(([, g]) => g.length);
+  $('#t-list').innerHTML = visiveis.length ? visiveis.map(([titulo, g]) => `
+    <li class="grupo">${esc(titulo)}</li>` + g.map(t => `
+    <li>
+      <div><strong>${esc(t.nome)}</strong> <span class="muted mono">${eur(t.tarifa)}/h</span></div>
+      ${acts('tipos', t.id, t.nome)}
+    </li>`).join('')).join('') : '<li><span class="empty">Ainda sem tipos de trabalho. Cria primeiro uma categoria e uma subcategoria.</span></li>';
+}
+function renderProd(){
+  const list = sorted(S.extras, 'nome');
+  $('#p-list').innerHTML = list.length ? list.map(p => `
+    <li>
+      <div><strong>${esc(p.nome)}</strong> <span class="muted mono">${eur(p.preco)} ${p.unidade === 'hora' ? '/ hora' : '/ ' + esc(p.rotulo || 'un')}</span></div>
+      ${acts('extras', p.id, p.nome)}
+    </li>`).join('') : '<li><span class="empty">Ainda sem produtos. Ex.: um fitofármaco cobrado por hora ou por unidade de área.</span></li>';
+}
+/* Relatório: mês escolhido, com o ano para comparar os meses. */
+/* ---------- gráfico personalizado do Relatório ---------- */
+// cores categóricas validadas (dataviz: contraste, CVD e luminosidade) na ordem fixa; o 6.º+ dobra em "Outros"
+const GC_PAL = ['#0c8a72','#d25f0c','#2a5fd0','#c62a6e','#6f9a10','#8d4cc9'];
+const GC_MET = {
+  trab_n:    {src:'trab', label:'Nº de trabalhos', fmt:'n', fn: () => 1},
+  trab_h:    {src:'trab', label:'Horas trabalhadas', fmt:'h', fn: j => (Number(j.minutos) || 0) / 60},
+  trab_fat:  {src:'trab', label:'Valor faturado', fmt:'eur', fn: j => totalSemGorjeta(j)},
+  trab_tempo:{src:'trab', label:'Valor do tempo (com desconto)', fmt:'eur', fn: j => (Number(j.valorTempo) || 0) * fatorFat(j)},
+  trab_itens:{src:'trab', label:'Itens extra (com desconto)', fmt:'eur', fn: j => (Number(j.itensTotal) || 0) * fatorFat(j)},
+  trab_desl: {src:'trab', label:'Deslocação (com desconto)', fmt:'eur', fn: j => (Number(j.deslocacao) || 0) * fatorFat(j)},
+  trab_gor:  {src:'trab', label:'Gorjetas (fora do total)', fmt:'eur', fn: j => Number(j.gorjeta) || 0},
+  trab_nfat: {src:'trab', label:'Horas não faturadas', fmt:'h', fn: j => naoFaturado(j) ? (Number(j.minutos) || 0) / 60 : 0},
+  rec_val:   {src:'rec', label:'Pagamentos recebidos', fmt:'eur', fn: r => Number(r.valor) || 0},
+  desp_val:  {src:'desp', label:'Despesas', fmt:'eur', fn: d => Number(d.valor) || 0},
+};
+const GC_DIM = {
+  mes:  {label:'Mês', src:['trab','rec','desp'], key: r => (r.data || '').slice(0, 7), lbl: k => fmtMes(k)},
+  cli:  {label:'Cliente', src:['trab','rec'], key: r => r.clienteId, lbl: k => nomeC(k)},
+  cat:  {label:'Categoria de trabalho', src:['trab'], key: r => r.categoriaId, lbl: k => nomeCat(k)},
+  tip:  {label:'Tipo de trabalho', src:['trab'], key: r => r.tipoId, lbl: k => nomeT(k)},
+  maq:  {label:'Máquina', src:['trab'], key: null, lbl: k => nomeM(k)},
+  forma:{label:'Forma de pagamento', src:['rec'], key: r => r.nota || '', lbl: k => k || 'Sem forma indicada'},
+  catd: {label:'Categoria de despesa', src:['desp'],
+         key: d => d.categoriaId || (d.categoria ? 'txt:' + d.categoria : ''),
+         lbl: k => k.startsWith('txt:') ? k.slice(4) : (k ? (S.catsCaixa[k]?.nome ?? 'Categoria removida') : 'Sem categoria')},
+};
+const GC_MAQ_METS = ['trab_n', 'trab_h', 'trab_nfat'];
+/* três filtros: cliente, categoria e tipo de trabalho. Pagamentos só se filtram por cliente;
+   despesas não têm cliente/categoria de trabalho, por isso saem quando há algum filtro ativo. */
+const GC_FILTROS = [
+  {id: 'gc-f-cli', ph: 'Todos os clientes', src: () => S.clientes, lbl: id => nomeC(id)},
+  {id: 'gc-f-cat', ph: 'Todas as categorias', src: () => S.categorias, lbl: id => nomeCat(id)},
+  /* tipos só da categoria escolhida no filtro de categoria (tipo → subcategoria → categoria) */
+  {id: 'gc-f-tip', ph: 'Todos os tipos', lbl: id => nomeT(id), src: () => {
+    const cat = $('#gc-f-cat').value, o = {};
+    Object.entries(S.tipos).forEach(([id, t]) => { if (!cat || S.subcategorias[t.subcategoriaId]?.categoriaId === cat) o[id] = t; });
+    return o;
+  }},
+];
+function fillGcFiltros(){
+  GC_FILTROS.forEach(f => {
+    const sel = $('#' + f.id), cur = sel.value;
+    const ids = Object.keys(f.src()).sort((a, b) => f.lbl(a).localeCompare(f.lbl(b), 'pt'));
+    sel.innerHTML = `<option value="">${f.ph}</option>` + ids.map(id => `<option value="${esc(id)}">${esc(f.lbl(id))}</option>`).join('');
+    sel.value = ids.includes(cur) ? cur : '';
+  });
+}
+function gcFiltros(){
+  return {cli: $('#gc-f-cli').value, cat: $('#gc-f-cat').value, tip: $('#gc-f-tip').value};
+}
+function gcRecs(src, per){
+  const ano = S.mes.slice(0, 4);
+  const ok = d => per === 'tudo' || (per === 'ano' ? (d || '').startsWith(ano) : (d || '').startsWith(S.mes));
+  const f = gcFiltros();
+  if (src === 'trab') return Object.entries(S.trabalhos).map(([id, j]) => ({...j, id})).filter(j => ok(j.data)
+    && (!f.cli || j.clienteId === f.cli) && (!f.cat || j.categoriaId === f.cat) && (!f.tip || j.tipoId === f.tip));
+  if (src === 'rec') return f.cat || f.tip ? [] : Object.values(S.recebimentos).filter(r => ok(r.data) && (!f.cli || r.clienteId === f.cli));
+  return f.cli || f.cat || f.tip ? [] : Object.values(S.despesas).filter(d => ok(d.data));
+}
+function gcDados(met, dim, per){
+  const M = GC_MET[met], D = GC_DIM[dim];
+  if (!D.src.includes(M.src)) return {rows: [], total: 0, aviso: `"${M.label}" não se agrupa por ${D.label.toLowerCase()}. Escolhe outra agrupação ou outra medida.`};
+  if (dim === 'maq' && !GC_MAQ_METS.includes(met)) return {rows: [], total: 0, aviso: 'Por máquina só se mostram horas e número de trabalhos.'};
+  let recs = gcRecs(M.src, per);
+  if (dim === 'maq') recs = recs.flatMap(j => (j.maquinas || []).map(m => ({...j, minutos: Number(m.minutos) || 0, _maq: m.maquinaId})));
+  const acc = {};
+  recs.forEach(r => {
+    const k = dim === 'maq' ? r._maq : D.key(r);
+    if (k === undefined || k === null) return;
+    acc[k] = (acc[k] || 0) + (Number(M.fn(r)) || 0);
+  });
+  let rows = Object.entries(acc).filter(([, v]) => v !== 0).map(([k, v]) => ({k, label: D.lbl(k), v}));
+  rows = dim === 'mes' ? rows.sort((a, b) => a.k.localeCompare(b.k)) : rows.sort((a, b) => b.v - a.v);
+  const total = rows.reduce((s, r) => s + r.v, 0);
+  rows.forEach(r => { r.pct = total ? r.v / total * 100 : 0; });
+  return {rows, total, aviso: ''};
+}
+function gcFmt(fmt, v){
+  if (fmt === 'h') return fmtTempo(Math.round(v * 60));
+  if (fmt === 'eur') return eur(v);
+  return String(Math.round(v));
+}
+/* só deixa escolher combinações que dão resultado: medida x agrupação válidas, filtros aplicáveis à fonte da medida */
+let gcOrigem = null;
+function gcValidoCombo(met, dim){
+  const M = GC_MET[met], D = GC_DIM[dim];
+  if (!M || !D || !D.src.includes(M.src)) return false;
+  if (dim === 'maq' && !GC_MAQ_METS.includes(met)) return false;
+  return true;
+}
+function gcAjustar(origem){
+  let met = $('#gc-met').value, dim = $('#gc-dim').value;
+  if (!gcValidoCombo(met, dim)) {
+    if (origem === 'gc-dim') met = Object.keys(GC_MET).find(k => gcValidoCombo(k, dim)) || met;
+    else dim = Object.keys(GC_DIM).find(k => gcValidoCombo(met, k)) || dim;
+  }
+  $('#gc-met').value = met;
+  $('#gc-dim').value = dim;
+  [...$('#gc-met').options].forEach(o => { o.disabled = !gcValidoCombo(o.value, dim); });
+  [...$('#gc-dim').options].forEach(o => { o.disabled = !gcValidoCombo(met, o.value); });
+  const src = GC_MET[met].src;
+  const permitidos = {'gc-f-cli': ['trab', 'rec'], 'gc-f-cat': ['trab'], 'gc-f-tip': ['trab']};
+  Object.entries(permitidos).forEach(([id, fontes]) => {
+    const sel = $('#' + id), ativo = fontes.includes(src);
+    sel.disabled = !ativo;
+    if (!ativo) sel.value = '';
+  });
+}
+function renderGrafico(){
+  if (!$('#gc-met').options.length) {
+    $('#gc-met').innerHTML = Object.entries(GC_MET).map(([k, m]) => `<option value="${k}">${m.label}</option>`).join('');
+    $('#gc-met').value = 'trab_n';
+  }
+  if (!$('#gc-dim').options.length) {
+    $('#gc-dim').innerHTML = Object.entries(GC_DIM).map(([k, d]) => `<option value="${k}">${d.label}</option>`).join('');
+    $('#gc-dim').value = 'cli';
+  }
+  fillGcFiltros();
+  gcAjustar(gcOrigem);
+  const met = $('#gc-met').value, dim = $('#gc-dim').value, per = $('#gc-per').value, tipo = $('#gc-tipo').value;
+  const M = GC_MET[met], D = GC_DIM[dim];
+  const {rows, total, aviso} = gcDados(met, dim, per);
+  $('#gc-aviso').textContent = aviso;
+  const out = $('#gc-chart');
+  const f = v => gcFmt(M.fmt, v);
+  if (aviso || !rows.length) {
+    out.innerHTML = aviso ? '' : '<p class="empty">Sem dados para esta combinação neste período.</p>';
+    $('#gc-tab').innerHTML = '';
+    return;
+  }
+  const max = Math.max(...rows.map(r => r.v));
+  if (tipo === 'barra') {
+    out.innerHTML = rows.map(r => `<div class="gc-bar">
+        <span>${esc(r.label)}</span>
+        <div class="gc-track" title="${esc(r.label)}: ${esc(f(r.v))}"><div class="gc-fill" style="width:${(r.v / max * 100).toFixed(1)}%"></div></div>
+        <span class="mono">${esc(f(r.v))}</span>
+      </div>`).join('');
+  } else if (tipo === 'coluna') {
+    out.innerHTML = `<div class="gc-cols" style="grid-template-columns:repeat(${rows.length},minmax(0,1fr))">` + rows.map(r => `
+        <div class="gc-col" title="${esc(r.label)}: ${esc(f(r.v))}">
+          <div class="gc-area"><div class="gc-col-fill" style="height:${(r.v / max * 100).toFixed(1)}%"></div></div>
+          <div class="gc-lbl"><strong>${esc(f(r.v))}</strong>${esc(r.label)}</div>
+        </div>`).join('') + '</div>';
+  } else if (tipo === 'linha') {
+    const W = 640, H = 260, pl = 56, pr = 16, pt = 16, pb = 40, n = rows.length;
+    const xs = i => n === 1 ? pl + (W - pl - pr) / 2 : pl + i * (W - pl - pr) / (n - 1);
+    const ys = v => H - pb - (v / (max * 1.1)) * (H - pb - pt);
+    const passo = Math.ceil(n / 12);
+    out.innerHTML = `<svg class="gc-linha" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(M.label)} por ${esc(D.label)}">
+        <line x1="${pl}" y1="${H - pb}" x2="${W - pr}" y2="${H - pb}" style="stroke:var(--line)"/>
+        <polyline points="${rows.map((r, i) => `${xs(i).toFixed(1)},${ys(r.v).toFixed(1)}`).join(' ')}" fill="none" stroke-width="2.5" stroke-linejoin="round" style="stroke:var(--accent)"/>
+        ${rows.map((r, i) => `<circle cx="${xs(i).toFixed(1)}" cy="${ys(r.v).toFixed(1)}" r="4.5" stroke-width="2" style="fill:var(--accent);stroke:var(--surface)"><title>${esc(r.label)}: ${esc(f(r.v))}</title></circle>`).join('')}
+        ${rows.map((r, i) => i % passo === 0 ? `<text x="${xs(i).toFixed(1)}" y="${H - pb + 16}" text-anchor="middle">${esc(r.label)}</text>` : '').join('')}
+        <text x="${pl - 8}" y="${pt + 4}" text-anchor="end">${esc(f(max))}</text>
+        <text x="${pl - 8}" y="${H - pb + 4}" text-anchor="end">0</text>
+      </svg>`;
+  } else {
+    const R = 70, C = 2 * Math.PI * R;
+    const fatias = rows.slice(0, 5).map((r, i) => ({label: r.label, v: r.v, cor: GC_PAL[i], txt: f(r.v)}));
+    const resto = rows.slice(5).reduce((s, r) => s + r.v, 0);
+    if (resto > 0) fatias.push({label: 'Outros', v: resto, cor: 'var(--muted)', txt: f(resto)});
+    let acum = 0;
+    const arcos = fatias.map(s => {
+      const len = C * s.v / total;
+      const el = `<circle cx="90" cy="90" r="${R}" fill="none" stroke-width="28" style="stroke:${s.cor}" stroke-dasharray="${len.toFixed(2)} ${(C - len).toFixed(2)}" stroke-dashoffset="${(-acum).toFixed(2)}" transform="rotate(-90 90 90)"><title>${esc(s.label)}: ${esc(s.txt)}</title></circle>`;
+      acum += len;
+      return el;
+    }).join('');
+    out.innerHTML = `<div class="gc-rosca">
+        <svg viewBox="0 0 180 180" role="img" aria-label="${esc(M.label)} por ${esc(D.label)}">${arcos}</svg>
+        <ul class="gc-legenda">${fatias.map(s => `<li><span class="gc-sw" style="background:${s.cor}"></span><span>${esc(s.label)}</span><span class="mono" style="margin-left:auto">${esc(s.txt)} · ${(s.v / total * 100).toFixed(1)}%</span></li>`).join('')}</ul>
+      </div>`;
+  }
+  // nº de trabalhos por grupo (só faz sentido agrupando por cliente; nas outras agrupações mostra-se "—")
+  const nTrab = {};
+  if (dim === 'cli') gcRecs('trab', per).forEach(j => { if (j.clienteId) nTrab[j.clienteId] = (nTrab[j.clienteId] || 0) + 1; });
+  $('#gc-tab').innerHTML = rows.map(r => `<tr><td>${esc(r.label)}</td><td class="num">${esc(f(r.v))}</td><td class="num">${r.pct.toFixed(1)}%</td><td class="num">${dim === 'cli' ? (nTrab[r.k] || 0) : '—'}</td></tr>`).join('');
+}
+['gc-met', 'gc-dim', 'gc-per', 'gc-tipo', 'gc-f-cli', 'gc-f-cat', 'gc-f-tip'].forEach(id => $('#' + id).addEventListener('change', () => { gcOrigem = id; renderGrafico(); }));
+
+function renderRel(){
+  $('#r-mes').value = S.mes;
+  const ano = S.mes.slice(0, 4);
+  const doMes = Object.entries(S.trabalhos).filter(([, j]) => (j.data || '').startsWith(S.mes));
+  const doAno = Object.entries(S.trabalhos).filter(([, j]) => (j.data || '').startsWith(ano));
+  const soma = (lista, fn) => lista.reduce((a, [, j]) => a + (Number(fn(j)) || 0), 0);
+  // valores já com desconto aplicado: Tempo + Itens + Deslocação = Total do mês
+  const fat = (lista, fn) => r2(lista.reduce((a, [, j]) => a + (Number(fn(j)) || 0) * fatorFat(j), 0));
+  const naoFat = doMes.filter(([, j]) => naoFaturado(j));
+
+  $('#r-tot').innerHTML = [
+    ['Trabalhos', doMes.length],
+    ['Horas', fmtTempo(soma(doMes, j => j.minutos))],
+    ['Não faturados (horas)', `${naoFat.length} · ${fmtTempo(soma(naoFat, j => j.minutos))}`],
+    ['Tempo', eur(fat(doMes, j => j.valorTempo))],
+    ['Itens extra', eur(fat(doMes, j => j.itensTotal))],
+    ['Deslocação', eur(fat(doMes, j => j.deslocacao))],
+    ['Gorjetas (fora do total)', eur(soma(doMes, j => j.gorjeta))],
+    ['Total do mês', eur(soma(doMes, j => totalSemGorjeta(j)))],
+  ].map(([l, v]) => `<div class="stat"><span>${esc(l)}</span><strong>${v}</strong></div>`).join('');
+
+  const meses = Array.from({length: 12}, (_, i) => `${ano}-${String(i + 1).padStart(2, '0')}`);
+  const totais = meses.map(m => doAno
+    .filter(([, j]) => (j.data || '').startsWith(m))
+    .reduce((a, [, j]) => a + totalSemGorjeta(j), 0));
+  const maior = Math.max(1, ...totais);
+  $('#r-ano-titulo').textContent = `Ano ${ano} · total ${eur(totais.reduce((a, b) => a + b, 0))}`;
+  $('#r-ano').innerHTML = `<div class="ano-chart">${meses.map((m, i) => `
+    <div class="ano-col ${m === S.mes ? 'atual' : ''}" title="${MESES[i]}: ${eur(totais[i])}">
+      <div class="ano-barra"><div class="ano-fill" style="height:${(totais[i] / maior * 100).toFixed(1)}%"></div></div>
+      <div class="ano-mes">${MESES[i].slice(0, 3)}</div>
+    </div>`).join('')}</div>`;
+
+  const linhasCat = sorted(S.categorias, 'nome').map(c => {
+    const l = doMes.filter(([, j]) => j.categoriaId === c.id);
+    return {nome: c.nome, n: l.length, min: soma(l, j => j.minutos), total: soma(l, j => totalSemGorjeta(j))};
+  }).filter(x => x.n);
+  $('#r-cat').innerHTML = linhasCat.length
+    ? linhasCat.map(x => `<tr><td>${esc(x.nome)}</td><td class="num">${x.n}</td><td class="num">${fmtTempo(x.min)}</td><td class="num">${eur(x.total)}</td></tr>`).join('')
+    : '<tr><td colspan="4" class="muted">Sem trabalhos neste mês.</td></tr>';
+
+  const porCli = {};
+  doMes.forEach(([, j]) => {
+    const k = j.clienteId;
+    if (!porCli[k]) porCli[k] = {min: 0, total: 0, n: 0};
+    porCli[k].min += Number(j.minutos) || 0;
+    porCli[k].total += totalSemGorjeta(j);
+    porCli[k].n++;
+  });
+  $('#r-cli').innerHTML = Object.entries(porCli)
+    .sort((a, b) => b[1].total - a[1].total)
+    .map(([id, v]) => {
+      const p = previsaoCliente(id);
+      const prox = p.prox ? `~${fmtData(p.prox)}` : (p.n === 1 ? 'Falta 2.º trabalho' : '');
+      return `<tr><td>${esc(nomeC(id))}</td><td class="num">${v.n}</td><td class="num">${fmtTempo(v.min)}</td><td class="num">${eur(v.total)}</td><td>${fmtData(p.ultima)}</td><td>${prox}</td></tr>`;
+    }).join('')
+    || '<tr><td colspan="6" class="muted">Sem trabalhos neste mês.</td></tr>';
+
+  const porMaq = {};
+  doMes.forEach(([, j]) => (j.maquinas || []).forEach(m => {
+    porMaq[m.maquinaId] = (porMaq[m.maquinaId] || 0) + (Number(m.minutos) || 0);
+  }));
+  $('#r-maq').innerHTML = Object.keys(porMaq).length
+    ? Object.entries(porMaq).sort((a, b) => b[1] - a[1])
+        .map(([id, min]) => `<tr><td>${esc(nomeM(id))}</td><td class="num">${fmtTempo(min)}</td></tr>`).join('')
+    : '<tr><td colspan="2" class="muted">Sem horas de máquinas neste mês.</td></tr>';
+
+  const porItem = {};
+  doMes.forEach(([, j]) => (j.itens || []).forEach(i => {
+    const k = String(i.extraId || i.nome);
+    const o = porItem[k] || {nome: i.nome, un: unidadeItem(i), quantidade: 0, total: 0};
+    o.quantidade += Number(i.quantidade) || 0;
+    o.total += Number(i.subtotal) || 0;
+    porItem[k] = o;
+  }));
+  const desl = doMes.filter(([, j]) => Number(j.deslocacao) > 0);
+  const linhas = Object.values(porItem).sort((a, b) => b.total - a.total)
+    .map(o => `<tr><td>${esc(o.nome)}</td><td class="num">${o.quantidade}${esc(o.un)}</td><td class="num">${eur(o.total)}</td></tr>`);
+  linhas.push(`<tr><td>Deslocações</td><td class="num">${desl.length}</td><td class="num">${eur(soma(desl, j => j.deslocacao))}</td></tr>`);
+  $('#r-itens').innerHTML = linhas.join('');
+}
+/* ---------- caixa: ganhos, despesas e saldo ---------- */
+const nomeCatCx = d => d.categoriaId ? (S.catsCaixa[d.categoriaId]?.nome ?? 'Categoria removida') : (d.categoria || 'Sem categoria');
+function movimentosDoMes(mes){
+  const ganhos = Object.entries(S.recebimentos)
+    .filter(([, r]) => (r.data || '').startsWith(mes))
+    .map(([id, r]) => ({tipo: 'ganho', id, origem: r.origem === 'trabalho' ? 'trabalho' : 'recebimento', cat: 'Recebimento', data: r.data, desc: `Pagamento · ${nomeC(r.clienteId)}${r.nota ? ' · ' + r.nota : ''}`, valor: Number(r.valor) || 0}));
+  const despesas = Object.entries(S.despesas)
+    .filter(([, d]) => (d.data || '').startsWith(mes))
+    .map(([id, d]) => ({tipo: 'despesa', id, origem: d.origem, data: d.data, cat: nomeCatCx(d), desc: d.descricao || '', valor: Number(d.valor) || 0}));
+  return [...ganhos, ...despesas].sort((a, b) => (b.data || '').localeCompare(a.data || ''));
+}
+function totaisDoMes(mes){
+  const mov = movimentosDoMes(mes);
+  const ganhos = mov.filter(m => m.tipo === 'ganho').reduce((s, m) => s + m.valor, 0);
+  const despesas = mov.filter(m => m.tipo === 'despesa').reduce((s, m) => s + m.valor, 0);
+  const gorjetas = Object.values(S.trabalhos)
+    .filter(j => (j.data || '').startsWith(mes)).reduce((s, j) => s + (Number(j.gorjeta) || 0), 0);
+  return {ganhos, despesas, saldo: ganhos - despesas, gorjetas};
+}
+function renderCx(){
+  $('#cx-mes').value = S.mes;
+  if (!$('#desp-data').value) $('#desp-data').value = hoje();
+  fillSelect('#desp-cat', sorted(S.catsCaixa, 'nome'), 'Escolhe a categoria');
+  const cats = sorted(S.catsCaixa, 'nome');
+  $('#cc-cat-list').innerHTML = cats.length ? cats.map(c => `<li><div><strong>${esc(c.nome)}</strong></div>${acts('catsCaixa', c.id, c.nome)}</li>`).join('') : '<li><span class="empty">Ainda sem categorias. Cria a primeira acima.</span></li>';
+  const t = totaisDoMes(S.mes);
+  const cor = v => v < 0 ? 'cx-neg' : 'cx-pos';
+  $('#cx-tot').innerHTML = [
+    ['Recebido', `<span class="cx-pos">${eur(t.ganhos)}</span>`],
+    ['Despesas', `<span class="cx-neg">${eur(t.despesas)}</span>`],
+    ['Saldo do mês', `<span class="${cor(t.saldo)}">${eur(t.saldo)}</span>`],
+    ['A receber (total)', `<span class="${aReceberTotal() > 0 ? 'cx-neg' : 'cx-pos'}">${eur(aReceberTotal())}</span>`],
+    ['Gorjetas (à parte)', eur(t.gorjetas)],
+  ].map(([l, v]) => `<div class="stat"><span>${esc(l)}</span><strong>${v}</strong></div>`).join('');
+
+  const mov = movimentosDoMes(S.mes);
+  $('#cx-mov').innerHTML = mov.length ? mov.map(m => {
+    const sinal = m.tipo === 'ganho' ? '+' : '−';
+    const acoes = m.tipo === 'ganho'
+      ? `<div class="acts">${acts('recebimentos', m.id, m.desc)}</div>`
+      : m.origem === 'manutencao'
+        ? '<span class="muted">Automática</span>'
+        : `<div class="acts">${acts('despesas', m.id, m.desc)}</div>`;
+    return `<tr>
+      <td class="mono">${fmtData(m.data)}</td>
+      <td>${esc(m.cat || '')}</td>
+      <td>${esc(m.desc)}</td>
+      <td class="num mono ${m.tipo === 'ganho' ? 'cx-pos' : 'cx-neg'}">${sinal} ${eur(m.valor)}</td>
+      <td>${acoes}</td>
+    </tr>`;
+  }).join('') : '<tr><td colspan="5" class="muted">Sem movimentos neste mês.</td></tr>';
+
+  const ano = S.mes.slice(0, 4);
+  $('#cx-ano-titulo').textContent = `Saldo por mês · ${ano}`;
+  let gA = 0, dA = 0;
+  $('#cx-ano').innerHTML = Array.from({length: 12}, (_, i) => {
+    const m = `${ano}-${String(i + 1).padStart(2, '0')}`;
+    const x = totaisDoMes(m);
+    gA += x.ganhos; dA += x.despesas;
+    return `<tr class="${m === S.mes ? 'atual' : ''}">
+      <td>${MESES[i]}</td>
+      <td class="num mono">${eur(x.ganhos)}</td>
+      <td class="num mono">${eur(x.despesas)}</td>
+      <td class="num mono ${cor(x.saldo)}">${eur(x.saldo)}</td>
+    </tr>`;
+  }).join('') + `<tr><td><strong>Total do ano</strong></td><td class="num mono">${eur(gA)}</td><td class="num mono">${eur(dA)}</td><td class="num mono ${cor(gA - dA)}">${eur(gA - dA)}</td></tr>`;
+}
+$('#f-desp').addEventListener('submit', async e => {
+  e.preventDefault();
+  const descricao = $('#desp-desc').value.trim();
+  if (!descricao) return say('Indica a descrição da despesa.');
+  if (!$('#desp-cat').value) return say('Escolhe a categoria da despesa.');
+  const valor = r2(num($('#desp-valor').value));
+  if (valor <= 0) return say('Indica o valor da despesa.');
+  const id = $('#desp-id').value || uid();
+  const old = S.despesas[id];
+  const dados = {
+    data: $('#desp-data').value || hoje(), descricao, categoriaId: $('#desp-cat').value,
+    valor, origem: 'manual', criadoEm: old?.criadoEm ?? Date.now(),
+  };
+  if (await run(() => db.collection('despesas').doc(id).set(dados), 'Despesa guardada.')) {
+    resetF('#f-desp', '#desp-id');
+    $('#desp-data').value = hoje();
+  }
+});
+$('#desp-clear').addEventListener('click', () => { resetF('#f-desp', '#desp-id'); $('#desp-data').value = hoje(); });
+$('#f-cat-cx').addEventListener('submit', async e => {
+  e.preventDefault();
+  const nome = $('#cc-cat-nome').value.trim();
+  if (!nome) return say('Indica o nome da categoria.');
+  const id = $('#cc-cat-id').value || uid();
+  if (Object.entries(S.catsCaixa).some(([k, c]) => k !== id && c.nome.toLowerCase() === nome.toLowerCase())) return say('Já existe uma categoria com esse nome.');
+  const old = S.catsCaixa[id];
+  if (await run(() => db.collection('catsCaixa').doc(id).set({nome, criadoEm: old?.criadoEm ?? Date.now()}), 'Categoria guardada.')) {
+    resetF('#f-cat-cx', '#cc-cat-id');
+  }
+});
+$('#cc-cat-clear').addEventListener('click', () => resetF('#f-cat-cx', '#cc-cat-id'));
+$('#f-forma').addEventListener('submit', async e => {
+  e.preventDefault();
+  const nome = $('#forma-nome').value.trim();
+  if (!nome) return say('Indica o nome da forma de pagamento.');
+  const id = $('#forma-id').value || uid();
+  if (Object.entries(S.formasPagamento).some(([k, f]) => k !== id && f.nome.toLowerCase() === nome.toLowerCase())) return say('Já existe uma forma com esse nome.');
+  const old = S.formasPagamento[id];
+  if (await run(() => db.collection('formasPagamento').doc(id).set({nome, criadoEm: old?.criadoEm ?? Date.now()}), 'Forma guardada.')) {
+    resetF('#f-forma', '#forma-id');
+  }
+});
+$('#forma-clear').addEventListener('click', () => resetF('#f-forma', '#forma-id'));
+/* ---------- conta corrente por cliente ---------- */
+function faturadoCliente(clienteId){
+  return Object.values(S.trabalhos).filter(j => j.clienteId === clienteId).reduce((s, j) => s + totalSemGorjeta(j), 0);
+}
+function recebidoCliente(clienteId){
+  return Object.values(S.recebimentos).filter(r => r.clienteId === clienteId).reduce((s, r) => s + (Number(r.valor) || 0), 0);
+}
+function aReceberTotal(){
+  return r2(Object.keys(S.clientes).reduce((s, cid) => s + faturadoCliente(cid) - recebidoCliente(cid), 0));
+}
+function renderConta(){
+  fillSelect('#rec-cli', sorted(S.clientes, 'nome'), 'Escolhe o cliente');
+  fillTrabRec();
+  if (!$('#rec-data').value) $('#rec-data').value = hoje();
+  const lista = sorted(S.clientes, 'nome');
+  $('#cc-tot').innerHTML = `<div class="stat"><span>Em dívida (total)</span><strong class="${aReceberTotal() > 0 ? 'cx-neg' : 'cx-pos'}">${eur(aReceberTotal())}</strong></div>`;
+  $('#cc-tab').innerHTML = lista.length ? lista.map(c => {
+    const f = r2(faturadoCliente(c.id)), p = r2(recebidoCliente(c.id)), d = r2(f - p);
+    return `<tr><td>${esc(c.nome)}</td><td class="num mono">${eur(f)}</td><td class="num mono">${eur(p)}</td><td class="num mono ${d > 0 ? 'cx-neg' : 'cx-pos'}">${eur(d)}</td></tr>`;
+  }).join('') : '<tr><td colspan="4" class="muted">Ainda sem clientes.</td></tr>';
+  fillForma($('#rec-forma').value);
+  $('#forma-list').innerHTML = (() => {
+    const formas = sorted(S.formasPagamento, 'nome');
+    return formas.length ? formas.map(f => `<li><div><strong>${esc(f.nome)}</strong></div>${acts('formasPagamento', f.id, f.nome)}</li>`).join('') : '<li><span class="empty">Ainda sem formas de pagamento. Cria a primeira acima.</span></li>';
+  })();
+  fillSelect('#cc-cli', lista, 'Escolhe o cliente');
+  const cid = $('#cc-cli').value;
+  if (!cid) {
+    $('#cc-ledger').innerHTML = '<tr><td colspan="6" class="muted">Escolhe um cliente para ver a conta corrente.</td></tr>';
+  } else {
+    const movs = [
+      ...Object.entries(S.trabalhos).filter(([, j]) => j.clienteId === cid).map(([id, j]) => ({
+        data: j.data || '', ord: j.criadoEm || 0,
+        desc: `Trabalho · ${nomeT(j.tipoId)} · ${estadoTxt(id, j)}`,
+        deb: totalSemGorjeta(j), cred: 0,
+        acoes: (faltaTrab(id, j) > 0 ? `<div class="acts"><button type="button" data-act="pagar-trab" data-id="${esc(id)}">${ico('check')}Pagar</button></div>` : '') + acts('trabalhos', id, `${nomeT(j.tipoId)} de ${fmtData(j.data)}`),
+      })),
+      ...Object.entries(S.recebimentos).filter(([, r]) => r.clienteId === cid).map(([id, r]) => ({
+        data: r.data || '', ord: r.criadoEm || 0,
+        desc: r.trabalhoId && S.trabalhos[r.trabalhoId]
+          ? `Pagamento · ${nomeT(S.trabalhos[r.trabalhoId].tipoId)} de ${fmtData(S.trabalhos[r.trabalhoId].data)}`
+          : 'Pagamento' + (r.nota ? ' · ' + r.nota : ''),
+        deb: 0, cred: Number(r.valor) || 0,
+        acoes: acts('recebimentos', id, `${nomeC(cid)} ${fmtData(r.data)}`),
+      })),
+    ].sort((a, b) => a.data.localeCompare(b.data) || a.ord - b.ord);
+    let saldo = 0;
+    $('#cc-ledger').innerHTML = movs.length ? movs.map(m => {
+      saldo = r2(saldo + m.deb - m.cred);
+      return `<tr>
+        <td class="mono">${fmtData(m.data)}</td>
+        <td>${esc(m.desc)}</td>
+        <td class="num mono">${m.deb ? eur(m.deb) : ''}</td>
+        <td class="num mono">${m.cred ? eur(m.cred) : ''}</td>
+        <td class="num mono ${saldo > 0 ? 'cx-neg' : 'cx-pos'}">${eur(saldo)}</td>
+        <td>${m.acoes}</td>
+      </tr>`;
+    }).join('') : '<tr><td colspan="6" class="muted">Sem movimentos para este cliente.</td></tr>';
+  }
+  const recs = Object.entries(S.recebimentos).map(([id, r]) => ({id, ...r})).sort((a, b) => (b.data || '').localeCompare(a.data || ''));
+  $('#cc-rec').innerHTML = recs.length ? recs.map(r => `<tr>
+      <td class="mono">${fmtData(r.data)}</td>
+      <td>${esc(nomeC(r.clienteId))} · ${esc(descRec(r))}</td>
+      <td class="num mono">${eur(r.valor)}</td>
+      <td>${acts('recebimentos', r.id, nomeC(r.clienteId) + ' ' + fmtData(r.data))}</td>
+    </tr>`).join('') : '<tr><td colspan="4" class="muted">Ainda sem pagamentos registados.</td></tr>';
+}
+$('#f-rec').addEventListener('submit', async e => {
+  e.preventDefault();
+  const clienteId = $('#rec-cli').value;
+  if (!clienteId) return say('Escolhe o cliente.');
+  const valor = r2(num($('#rec-valor').value));
+  if (valor <= 0) return say('Indica o valor recebido.');
+  const id = $('#rec-id').value || uid();
+  const old = S.recebimentos[id];
+  const trabalhoId = $('#rec-trab').value || '';
+  if (trabalhoId) {
+    const j = S.trabalhos[trabalhoId];
+    if (!j) return say('O trabalho escolhido já não existe.');
+    const jaPago = pagoTrab(trabalhoId) - (old?.trabalhoId === trabalhoId ? (Number(old.valor) || 0) : 0);
+    if (valor > r2(totalSemGorjeta(j) - jaPago) + 0.005) return say('O valor é maior do que falta pagar neste trabalho.');
+  }
+  const dados = {
+    clienteId, data: $('#rec-data').value || hoje(), valor, trabalhoId, origem: 'manual',
+    nota: $('#rec-forma').value, criadoEm: old?.criadoEm ?? Date.now(),
+  };
+  if (await run(() => db.collection('recebimentos').doc(id).set(dados), 'Pagamento registado.')) {
+    resetF('#f-rec', '#rec-id');
+    $('#rec-data').value = hoje();
+  }
+});
+$('#rec-clear').addEventListener('click', () => { resetF('#f-rec', '#rec-id'); $('#rec-data').value = hoje(); });
+$('#cc-cli').addEventListener('change', renderConta);
+$('#rec-cli').addEventListener('change', fillTrabRec);
+$('#rec-trab').addEventListener('change', () => {
+  const id = $('#rec-trab').value;
+  if (id && S.trabalhos[id]) $('#rec-valor').value = Math.max(0, faltaTrab(id, S.trabalhos[id]));
+});
+function mudarMes(d){
+  const [a, m] = S.mes.split('-').map(Number);
+  const dt = new Date(a, m - 1 + d, 1);
+  S.mes = `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, '0')}`;
+  render();
+}
+async function exportarMes(){
+  const lista = Object.entries(S.trabalhos)
+    .filter(([, j]) => (j.data || '').startsWith(S.mes))
+    .map(([id, j]) => ({id, ...j}));
+  if (!lista.length) return say('Não há trabalhos neste mês.');
+  const dl = await ns('downloads');
+  if (!dl) return say('Guardar ficheiro não está disponível nesta visualização.');
+  try {
+    await dl.save({filename: `trabalhos-${S.mes}.csv`, data: csv(lista)});
+    say('CSV do mês guardado.');
+  } catch (e) {
+    say('Não foi possível guardar o ficheiro.');
+  }
+}
+function render(){ renderJobs(); renderCli(); renderCat(); renderSub(); renderTip(); renderTipMaqs(); renderProd(); renderMaq(); renderMan(); renderAnalise(); renderRel(); renderCx(); renderConta(); renderGrafico(); renderAlertaPanel(); }
+
+function show(tab){
+  S.pendingDel = null;
+  ['trab', 'cli', 'tip', 'prod', 'maq', 'man', 'cx', 'conf', 'rel', 'rec'].forEach(t => {
+    $('#tab-' + t).hidden = t !== tab;
+  });
+  const noMaq = ['maq', 'man'].includes(tab);
+  $('#maq-sub').hidden = !noMaq;
+  document.querySelectorAll('[data-tab]').forEach(b => {
+    const t = b.dataset.tab;
+    b.setAttribute('aria-selected', String(t === tab || (t === 'maq' && tab === 'man')));
+  });
+  if (tab === 'rec') preencheprestador();
+  render();
+  window.scrollTo(0, 0);
+}
+
+/* ---------- formulários ---------- */
+function resetJob(){
+  $('#f-job').reset();
+  $('#j-id').value = '';
+  S.itens = [];
+  S.maqSel = [];
+  $('#j-title').textContent = 'Novo trabalho';
+  $('#j-save').textContent = 'Guardar trabalho';
+  $('#j-cancel').hidden = true;
+  $('#j-data').value = hoje();
+  renderJobs();
+  previewJob();
+}
+function resetF(formSel, hiddenSel){ $(formSel).reset(); if (hiddenSel) $(hiddenSel).value = ''; }
+function loadEdit(col, id){
+  if (col === 'trabalhos') {
+    const j = S.trabalhos[id]; if (!j) return;
+    $('#j-id').value = id;
+    $('#j-title').textContent = 'Editar trabalho';
+    $('#j-save').textContent = 'Guardar alterações';
+    $('#j-cancel').hidden = false;
+    $('#j-data').value = j.data;
+    $('#j-cli').value = j.clienteId;
+    fillCatJ();
+    $('#j-cat').value = S.subcategorias[j.subcategoriaId]?.categoriaId || '';
+    fillSubJ();
+    $('#j-sub').value = j.subcategoriaId || '';
+    fillTipJ();
+    $('#j-tip').value = j.tipoId;
+    $('#j-h').value = Math.floor(j.minutos / 60);
+    $('#j-m').value = j.minutos % 60;
+    $('#j-desl').value = j.deslocacao || '';
+    $('#j-gor').value = j.gorjeta || '';
+    $('#j-nota').value = j.nota || '';
+    S.itens = (j.itens || []).map(i => ({...i}));
+    S.maqSel = (j.maquinas || []).map(m => ({...m}));
+    renderItens();
+    previewJob();
+    show('trab');
+  }
+  if (col === 'clientes') {
+    const c = S.clientes[id]; if (!c) return;
+    $('#c-id').value = id;
+    $('#c-nome').value = c.nome;
+    $('#c-contacto').value = c.contacto || '';
+    $('#c-morada').value = c.morada || '';
+    $('#c-desl').value = c.deslocacao || '';
+    $('#c-ext').value = c.extras || '';
+    $('#c-desc').value = c.descontoPct || '';
+    show('cli'); showCli('criar');
+  }
+  if (col === 'categorias') {
+    const c = S.categorias[id]; if (!c) return;
+    $('#cat-id').value = id;
+    $('#cat-nome').value = c.nome;
+    show('tip'); showTip('cat');
+  }
+  if (col === 'subcategorias') {
+    const s = S.subcategorias[id]; if (!s) return;
+    $('#sub-id').value = id;
+    $('#sub-nome').value = s.nome;
+    $('#sub-cat').value = s.categoriaId || '';
+    show('tip'); showTip('sub');
+  }
+  if (col === 'tipos') {
+    const t = S.tipos[id]; if (!t) return;
+    $('#t-id').value = id;
+    $('#t-nome').value = t.nome;
+    $('#t-sub').value = t.subcategoriaId || '';
+    $('#t-tarifa').value = t.tarifa;
+    S.tipoMaqSel = [...(t.maquinasIds || [])];
+    show('tip'); showTip('tip');
+  }
+  if (col === 'recebimentos') {
+    const r = S.recebimentos[id];
+    if (r) {
+      $('#rec-id').value = id;
+      $('#rec-cli').value = r.clienteId || '';
+      fillTrabRec();
+      $('#rec-trab').value = r.trabalhoId || '';
+      $('#rec-data').value = r.data || hoje();
+      $('#rec-valor').value = r.valor || '';
+      fillForma(r.nota || '');
+      show('cli'); showCli('conta');
+    }
+  }
+  if (col === 'formasPagamento') {
+    const f = S.formasPagamento[id];
+    if (f) { $('#forma-id').value = id; $('#forma-nome').value = f.nome || ''; show('conf'); }
+  }
+  if (col === 'catsCaixa') {
+    const c = S.catsCaixa[id];
+    if (c) { $('#cc-cat-id').value = id; $('#cc-cat-nome').value = c.nome || ''; show('cx'); }
+  }
+  if (col === 'despesas') {
+    const d = S.despesas[id];
+    if (d && d.origem !== 'manutencao') {
+      $('#desp-id').value = id;
+      $('#desp-data').value = d.data || hoje();
+      $('#desp-desc').value = d.descricao || '';
+      $('#desp-cat').value = d.categoriaId || '';
+      $('#desp-valor').value = d.valor || '';
+      show('cx');
+    }
+  }
+  if (col === 'manutencoes') {
+    const it = S.manutencoes[id]; if (!it) return;
+    $('#man-id').value = id;
+    renderMan();
+    $('#man-maq').value = it.maquinaId;
+    $('#man-peca').value = it.peca;
+    $('#man-int').value = it.intervaloH;
+    $('#man-aviso').value = it.avisoH ?? '';
+    $('#man-tempo').value = it.tempoMin || '';
+    $('#man-custo').value = it.custo ?? '';
+    $('#man-ultima').value = it.ultimaH ?? '';
+    $('#man-nota').value = it.nota || '';
+    show('man');
+  }
+  if (col === 'maquinas') {
+    const m = S.maquinas[id]; if (!m) return;
+    $('#m-id').value = id;
+    $('#m-nome').value = m.nome;
+    $('#m-horas').value = m.horasIniciais || 0;
+    $('#m-nota').value = m.nota || '';
+    show('maq');
+  }
+  if (col === 'extras') {
+    const p = S.extras[id]; if (!p) return;
+    $('#p-id').value = id;
+    $('#p-nome').value = p.nome;
+    $('#p-unidade').value = p.unidade;
+    $('#p-rotulo').value = p.rotulo || '';
+    $('#p-preco').value = p.preco;
+    show('prod');
+  }
+}
+
+/* ---------- pagamentos parciais por trabalho ---------- */
+const pagoTrab = id => r2(Object.values(S.recebimentos).filter(r => r.trabalhoId === id).reduce((s, r) => s + (Number(r.valor) || 0), 0));
+const faltaTrab = (id, j) => r2(totalSemGorjeta(j) - pagoTrab(id));
+function estadoTxt(id, j){
+  if (naoFaturado(j)) return 'não faturado';
+  const paga = pagoTrab(id), falta = faltaTrab(id, j);
+  if (falta <= 0) return 'pago';
+  return paga > 0 ? `pago ${eur(paga)}, falta ${eur(falta)}` : 'em aberto';
+}
+function fillTrabRec(){
+  const cid = $('#rec-cli').value;
+  const el = $('#rec-trab');
+  const cur = el.value;
+  const jobs = Object.entries(S.trabalhos).filter(([, j]) => j.clienteId === cid)
+    .sort((a, b) => (b[1].data || '').localeCompare(a[1].data || ''));
+  el.innerHTML = '<option value="">Sem trabalho (pagamento geral)</option>' + jobs.map(([id, j]) =>
+    `<option value="${esc(id)}">${fmtData(j.data)} · ${esc(nomeT(j.tipoId))} · ${esc(estadoTxt(id, j))}</option>`).join('');
+  el.value = jobs.some(([id]) => id === cur) ? cur : '';
+}
+const descRec = r => {
+  const j = r.trabalhoId && S.trabalhos[r.trabalhoId];
+  return (j ? `Pagamento · ${nomeT(j.tipoId)} de ${fmtData(j.data)}` : 'Pagamento') + (r.nota ? ' · ' + r.nota : '');
+};
+function fillForma(cur){
+  const formas = sorted(S.formasPagamento, 'nome');
+  const extra = cur && !formas.some(f => f.nome === cur) ? `<option value="${esc(cur)}">${esc(cur)}</option>` : '';
+  $('#rec-forma').innerHTML = '<option value="">Sem forma indicada</option>'
+    + formas.map(f => `<option value="${esc(f.nome)}">${esc(f.nome)}</option>`).join('') + extra;
+  $('#rec-forma').value = cur || '';
+}
+function pagarTrabalho(id){
+  const j = S.trabalhos[id]; if (!j) return;
+  resetF('#f-rec', '#rec-id');
+  $('#rec-cli').value = j.clienteId;
+  fillTrabRec();
+  $('#rec-trab').value = id;
+  $('#rec-data').value = hoje();
+  $('#rec-valor').value = Math.max(0, faltaTrab(id, j));
+  show('cli'); showCli('conta');
+  $('#rec-valor').focus();
+}
+
+$('#f-job').addEventListener('submit', async e => {
+  e.preventDefault();
+  const cli = $('#j-cli').value, tip = $('#j-tip').value;
+  if (!cli || !tip) return say('Escolhe o cliente e o tipo de trabalho.');
+  const r = calcJob();
+  if (r.min <= 0 && !S.itens.length) return say('Indica o tempo trabalhado ou um item extra.');
+  const id = $('#j-id').value || uid();
+  const old = S.trabalhos[id];
+  const subId = S.tipos[tip]?.subcategoriaId || '';
+  const data = {
+    clienteId: cli, tipoId: tip,
+    subcategoriaId: subId, categoriaId: S.subcategorias[subId]?.categoriaId || '',
+    data: $('#j-data').value || hoje(),
+    minutos: r.min, tarifa: r.tarifa, valorTempo: r.valorTempo,
+    itens: S.itens.map(i => ({extraId: i.extraId, nome: i.nome, unidade: i.unidade, rotulo: i.rotulo || '', quantidade: i.quantidade, preco: i.preco, subtotal: i.subtotal})),
+    itensTotal: r.itens,
+    maquinas: S.maqSel.filter(m => m.minutos > 0).map(m => ({maquinaId: m.maquinaId, minutos: m.minutos})),
+    deslocacao: num($('#j-desl').value), gorjeta: num($('#j-gor').value),
+    total: r.total, descontoPct: old ? (Number(old.descontoPct) || 0) : r.descontoPct, nota: $('#j-nota').value.trim(),
+    criadoEm: old?.criadoEm ?? Date.now(),
+  };
+  if (await run(() => db.collection('trabalhos').doc(id).set(data), 'Trabalho guardado.')) resetJob();
+});
+
+$('#j-add-item').addEventListener('click', () => {
+  const id = $('#j-prod').value;
+  const p = S.extras[id];
+  const q = num($('#j-qtd').value);
+  if (!p) return say('Escolhe o produto.');
+  if (q <= 0) return say('Indica a quantidade.');
+  const preco = Number(p.preco) || 0;
+  S.itens.push({extraId: id, nome: p.nome, unidade: p.unidade, rotulo: p.rotulo || '', quantidade: q, preco, subtotal: r2(q * preco)});
+  $('#j-prod').value = '';
+  $('#j-qtd').value = '';
+  renderItens();
+  previewJob();
+});
+
+$('#f-cli').addEventListener('submit', async e => {
+  e.preventDefault();
+  const nome = $('#c-nome').value.trim();
+  if (!nome) return say('O cliente precisa de um nome.');
+  const id = $('#c-id').value || uid();
+  const old = S.clientes[id];
+  const data = {
+    nome, contacto: $('#c-contacto').value.trim(), morada: $('#c-morada').value.trim(),
+    deslocacao: num($('#c-desl').value), extras: num($('#c-ext').value),
+    descontoPct: Math.min(100, Math.max(0, num($('#c-desc').value))),
+    criadoEm: old?.criadoEm ?? Date.now(),
+  };
+  if (await run(() => db.collection('clientes').doc(id).set(data), 'Cliente guardado.')) resetF('#f-cli', '#c-id');
+});
+
+$('#f-cat').addEventListener('submit', async e => {
+  e.preventDefault();
+  const nome = $('#cat-nome').value.trim();
+  if (!nome) return say('A categoria precisa de um nome.');
+  const id = $('#cat-id').value || uid();
+  const old = S.categorias[id];
+  if (await run(() => db.collection('categorias').doc(id).set({nome, criadoEm: old?.criadoEm ?? Date.now()}), 'Categoria guardada.')) resetF('#f-cat', '#cat-id');
+});
+
+$('#f-sub').addEventListener('submit', async e => {
+  e.preventDefault();
+  const nome = $('#sub-nome').value.trim();
+  const categoriaId = $('#sub-cat').value;
+  if (!categoriaId) return say('Escolhe a categoria a que pertence a subcategoria.');
+  if (!nome) return say('A subcategoria precisa de um nome.');
+  const id = $('#sub-id').value || uid();
+  const old = S.subcategorias[id];
+  const data = {nome, categoriaId, criadoEm: old?.criadoEm ?? Date.now()};
+  if (await run(() => db.collection('subcategorias').doc(id).set(data), 'Subcategoria guardada.')) resetF('#f-sub', '#sub-id');
+});
+
+$('#f-tip').addEventListener('submit', async e => {
+  e.preventDefault();
+  const nome = $('#t-nome').value.trim();
+  if (!nome) return say('O tipo de trabalho precisa de um nome.');
+  const subcategoriaId = $('#t-sub').value;
+  if (!subcategoriaId) return say('Escolhe a subcategoria. Se ainda não existir, cria-a primeiro.');
+  const id = $('#t-id').value || uid();
+  const old = S.tipos[id];
+  const data = {nome, subcategoriaId, tarifa: num($('#t-tarifa').value), maquinasIds: [...S.tipoMaqSel], criadoEm: old?.criadoEm ?? Date.now()};
+  if (await run(() => db.collection('tipos').doc(id).set(data), 'Tipo guardado.')) { S.tipoMaqSel = []; resetF('#f-tip', '#t-id'); }
+});
+
+$('#f-prod').addEventListener('submit', async e => {
+  e.preventDefault();
+  const nome = $('#p-nome').value.trim();
+  if (!nome) return say('O produto precisa de um nome.');
+  const unidade = $('#p-unidade').value;
+  const rotulo = unidade === 'quantidade' ? ($('#p-rotulo').value.trim() || 'un') : '';
+  const id = $('#p-id').value || uid();
+  const old = S.extras[id];
+  const data = {nome, unidade, rotulo, preco: num($('#p-preco').value), criadoEm: old?.criadoEm ?? Date.now()};
+  if (await run(() => db.collection('extras').doc(id).set(data), 'Produto guardado.')) resetF('#f-prod', '#p-id');
+});
+
+$('#f-maq').addEventListener('submit', async e => {
+  e.preventDefault();
+  const nome = $('#m-nome').value.trim();
+  if (!nome) return say('A máquina precisa de um nome.');
+  const id = $('#m-id').value || uid();
+  const old = S.maquinas[id];
+  const data = {nome, horasIniciais: num($('#m-horas').value), nota: $('#m-nota').value.trim(), criadoEm: old?.criadoEm ?? Date.now()};
+  if (await run(() => db.collection('maquinas').doc(id).set(data), 'Máquina guardada.')) resetF('#f-maq', '#m-id');
+});
+$('#m-clear').addEventListener('click', () => resetF('#f-maq', '#m-id'));
+$('#f-man').addEventListener('submit', async e => {
+  e.preventDefault();
+  const maquinaId = $('#man-maq').value;
+  if (!maquinaId) return say('Escolhe a máquina primeiro.');
+  const peca = $('#man-peca').value.trim();
+  if (!peca) return say('Indica o nome da peça ou tarefa.');
+  const intervaloH = num($('#man-int').value);
+  if (intervaloH <= 0) return say('Indica de quantas em quantas horas se faz.');
+  const id = $('#man-id').value || uid();
+  const old = S.manutencoes[id];
+  const ultimaH = $('#man-ultima').value === '' ? r2(horasMaquina(maquinaId)) : num($('#man-ultima').value);
+  const data = {
+    maquinaId, peca, intervaloH, tempoMin: Math.round(num($('#man-tempo').value)), custo: r2(num($('#man-custo').value)),
+    avisoH: $('#man-aviso').value === '' ? 20 : Math.max(0, num($('#man-aviso').value)),
+    ultimaH, ultimaData: old?.ultimaData || '', nota: $('#man-nota').value.trim(),
+    criadoEm: old?.criadoEm ?? Date.now(),
+  };
+  if (await run(() => db.collection('manutencoes').doc(id).set(data), 'Manutenção guardada.')) resetF('#f-man', '#man-id');
+});
+$('#man-clear').addEventListener('click', () => resetF('#f-man', '#man-id'));
+
+$('#j-clear').addEventListener('click', resetJob);
+$('#j-cancel').addEventListener('click', resetJob);
+$('#c-clear').addEventListener('click', () => resetF('#f-cli', '#c-id'));
+$('#cat-clear').addEventListener('click', () => resetF('#f-cat', '#cat-id'));
+$('#sub-clear').addEventListener('click', () => resetF('#f-sub', '#sub-id'));
+$('#t-clear').addEventListener('click', () => { S.tipoMaqSel = []; resetF('#f-tip', '#t-id'); renderTipMaqs(); });
+$('#p-clear').addEventListener('click', () => resetF('#f-prod', '#p-id'));
+
+document.addEventListener('input', e => {
+  if (!e.target.closest('#f-job')) return;
+  if (e.target.id === 'j-h' || e.target.id === 'j-m') syncMaqMinutos();
+  previewJob();
+});
+document.addEventListener('change', e => {
+  if (e.target.closest('#f-job')) {
+    if (e.target.id === 'j-cat') { fillSubJ(); fillTipJ(); }
+    if (e.target.id === 'j-sub') fillTipJ();
+    if (e.target.id === 'j-tip') autoMaq();
+    if (e.target.id === 'j-cli' && !$('#j-id').value) {
+      const c = S.clientes[e.target.value];
+      $('#j-desl').value = c?.deslocacao || '';
+    }
+    previewJob();
+  }
+  if (e.target.matches('[data-tmaq]')) {
+    const id = e.target.dataset.tmaq;
+    S.tipoMaqSel = e.target.checked ? [...new Set([...S.tipoMaqSel, id])] : S.tipoMaqSel.filter(x => x !== id);
+    return;
+  }
+  if (e.target.id === 'man-maq') renderMan();
+  if (e.target.id === 'r-mes') { S.mes = e.target.value || S.mes; renderRel(); }
+  if (e.target.id === 'cx-mes') { S.mes = e.target.value || S.mes; render(); }
+});
+
+/* ---------- ações ---------- */
+document.addEventListener('click', async e => {
+  const b = e.target.closest('[data-act]');
+  if (!b) return;
+  const act = b.dataset.act;
+  if (act === 'tab') return show(b.dataset.tab);
+  if (act === 'cli-sub') return showCli(b.dataset.v);
+  if (act === 'tip-sub') return showTip(b.dataset.v);
+  if (act === 'man-sub') return showMan(b.dataset.v);
+  if (act === 'rel-mes') return mudarMes(Number(b.dataset.d));
+  if (act === 'rel-csv') return exportarMes();
+  if (act === 'an-maq') return analisarMaquina(b.dataset.id);
+  if (act === 'alertas') return toggleAlertas();
+  if (act === 'alerta-ir') return irAlerta(b.dataset.tipo, b.dataset.id);
+  if (act === 'margem-save') return guardarMargem(b.dataset.key, b.closest('.margem-linha').querySelector('input').value);  if (act === 'edit') return loadEdit(b.dataset.col, b.dataset.id);
+  if (act === 'item-del') { S.itens.splice(Number(b.dataset.i), 1); renderItens(); previewJob(); return; }
+  if (act === 'del-ask') { S.pendingDel = {col: b.dataset.col, id: b.dataset.id}; return render(); }
+  if (act === 'del-no') { S.pendingDel = null; return render(); }
+  if (act === 'del-ok') {
+    const p = S.pendingDel;
+    if (!p) return;
+    S.pendingDel = null;
+    render();
+    await run(async () => {
+      if (p.col === 'trabalhos') {
+        // apaga também os pagamentos ligados a este trabalho, para sair da conta corrente
+        for (const [rid, r] of Object.entries(S.recebimentos)) {
+          if (r.trabalhoId === p.id || rid === `trab-${p.id}`) await db.collection('recebimentos').doc(rid).delete();
+        }
+      }
+      await db.collection(p.col).doc(p.id).delete();
+    }, 'Apagado.');
+    return;
+  }
+  if (act === 'maq-del') { S.maqSel.splice(Number(b.dataset.i), 1); renderMaqSel(); return; }
+  if (act === 'man-feito') return marcarFeito(b.dataset.id);
+  if (act === 'pagar-trab') return pagarTrabalho(b.dataset.id);
+  if (act === 'recibo') return abrirRecibo(b.dataset.id);
+  if (act === 'rec-save') return guardarRecibo();
+  if (act === 'rec-copy') return copiarRecibo();
+  if (act === 'rec-back') return show('trab');
+  if (act === 'backup') return backup();
+});
+
+function csvCell(v){
+  const s = String(v ?? '');
+  return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+}
+function csv(entries = Object.values(S.trabalhos)){
+  const head = ['Data', 'Cliente', 'Categoria', 'Subcategoria', 'Tipo', 'Minutos', 'Tarifa €/h', 'Valor tempo €', 'Itens extra', 'Itens €', 'Deslocação €', 'Gorjeta €', 'Total €', 'Máquinas', 'Nota'];
+  const linhas = entries.map(j => [
+    j.data, nomeC(j.clienteId), nomeCat(j.categoriaId), nomeS(j.subcategoriaId), nomeT(j.tipoId), j.minutos, j.tarifa, j.valorTempo,
+    (j.itens || []).map(i => `${i.nome} ${i.quantidade}${unidadeItem(i)} × ${i.preco}`).join(' | '),
+    j.itensTotal, j.deslocacao, j.gorjeta, totalSemGorjeta(j), (j.maquinas || []).map(m => `${nomeM(m.maquinaId)} ${fmtTempo(m.minutos)}`).join(' | '), j.nota,
+  ]);
+  linhas.sort((a, b) => String(a[0] ?? '').localeCompare(String(b[0] ?? '')));
+  return '﻿' + [head, ...linhas].map(r => r.map(csvCell).join(',')).join('\n');
+}
+async function backup(){
+  if (!mcp) return say('Sem ligação ao Google Drive nesta visualização.');
+  if (!Object.keys(S.trabalhos).length) return say('Ainda não há trabalhos para guardar.');
+  const d = new Date();
+  const stamp = `${hoje()} ${String(d.getHours()).padStart(2, '0')}h${String(d.getMinutes()).padStart(2, '0')}`;
+  say('A criar a cópia no Google Drive…');
+  try {
+    await mcp.callTool('Google Drive', 'create_file', {
+      title: `Trabalhos agrícolas ${stamp}`,
+      contentMimeType: 'text/csv',
+      textContent: csv(),
+    });
+    say('Cópia criada no Google Drive.');
+  } catch (e) {
+    say(explainMcp(e));
+  }
+}
+
+/* ---------- recibo (agrupado por cliente e dia) ---------- */
+function trabalhosDoRecibo(clienteId, data){
+  return Object.entries(S.trabalhos)
+    .filter(([, j]) => j.clienteId === clienteId && j.data === data)
+    .sort((a, b) => (a[1].criadoEm || 0) - (b[1].criadoEm || 0))
+    .map(([id, j]) => ({id, ...j}));
+}
+const refRecibo = (clienteId, data) => `R-${String(data || '').replace(/-/g, '')}-${String(clienteId || '').slice(-4).toUpperCase()}`;
+function linhasRecibo(lista){
+  const linhas = [];
+  lista.forEach(j => {
+    linhas.push({desc: `Serviço de ${nomeT(j.tipoId)} · ${fmtTempo(j.minutos)}`, valor: Number(j.valorTempo) || 0});
+    (j.itens || []).forEach(i => linhas.push({desc: `${i.nome} · ${i.quantidade} ${unidadeItem(i)} × ${eur(i.preco)}`, valor: Number(i.subtotal) || 0}));
+    if (Number(j.deslocacao) > 0) linhas.push({desc: `Deslocação · ${nomeT(j.tipoId)}`, valor: Number(j.deslocacao)});
+    const pct = Number(j.descontoPct) || 0;
+    if (pct > 0) linhas.push({desc: `Desconto ${pct}% · ${nomeT(j.tipoId)}`, valor: -r2(totalBruto(j) * pct / 100)});
+  });
+  const total = r2(linhas.reduce((a, l) => a + l.valor, 0));
+  return {linhas, total};
+}
+function descPadrao(lista){
+  const data = lista[0]?.data || '';
+  const partes = lista.map(j => `${nomeT(j.tipoId)} (${fmtTempo(j.minutos)})`).join(', ');
+  const nomes = [...new Set(lista.flatMap(j => (j.itens || []).map(i => i.nome)))];
+  const itens = nomes.length ? ` Inclui ${nomes.join(', ')}.` : '';
+  return `Serviços agrícolas realizados em ${data}: ${partes}.${itens}`;
+}
+function corpoRecibo(ref, clienteId, lista, desc){
+  const {linhas, total} = linhasRecibo(lista);
+  const p = S.config?.prestador || {};
+  const c = S.clientes[clienteId] || {};
+  return `
+    <div class="rc-head">
+      <div><strong>RECIBO</strong><div class="muted">${esc(ref)}</div></div>
+      <div>Data: <span class="mono">${esc(lista[0]?.data || '')}</span></div>
+    </div>
+    <div class="rc-block">
+      <div><span class="muted">Prestador</span><br>${esc(p.nome || '—')}${p.nif ? '<br>NIF ' + esc(p.nif) : ''}${p.morada ? '<br>' + esc(p.morada) : ''}</div>
+      <div><span class="muted">Cliente</span><br>${esc(c.nome || nomeC(clienteId))}${c.morada ? '<br>' + esc(c.morada) : ''}</div>
+    </div>
+    <p class="rc-desc">${esc(desc)}</p>
+    <table>
+      <thead><tr><th>Descrição</th><th class="num">Valor</th></tr></thead>
+      <tbody>${linhas.map(l => `<tr><td>${esc(l.desc)}</td><td class="num">${eur(l.valor)}</td></tr>`).join('')}</tbody>
+      <tfoot><tr><th>Total</th><th class="num">${eur(total)}</th></tr></tfoot>
+    </table>`;
+}
+function ficheiroRecibo(ref, clienteId, lista, desc){
+  return `<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Recibo ${esc(ref)}</title><style>
+  body{margin:0;padding:24px;font:14px/1.45 system-ui,sans-serif;color:#1c2418;background:#fff}
+  .rc-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid #1c2418;padding-bottom:10px}
+  .rc-head strong{font-size:20px;letter-spacing:.08em}
+  .rc-block{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+  .rc-desc{margin:0 0 16px;line-height:1.5}
+  table{width:100%;border-collapse:collapse}
+  th,td{padding:8px 4px;border-top:1px solid #d6d1bf;text-align:left;vertical-align:top}
+  tfoot th{border-top:2px solid #1c2418;font-size:16px}
+  .num{text-align:right;white-space:nowrap}
+  .muted{color:#646b5c;font-size:12px}
+  @media print{body{padding:0}}
+  </style></head><body>${corpoRecibo(ref, clienteId, lista, desc)}</body></html>`;
+}
+function textoRecibo(ref, clienteId, lista, desc){
+  const {linhas, total} = linhasRecibo(lista);
+  const p = S.config?.prestador || {};
+  const l = [`RECIBO ${ref}`, `Data: ${lista[0]?.data || ''}`, `Cliente: ${nomeC(clienteId)}`, '', desc, ''];
+  linhas.forEach(x => l.push(`${x.desc}: ${eur(x.valor)}`));
+  l.push(`TOTAL: ${eur(total)}`);
+  if (p.nome) l.push('', `${p.nome}${p.nif ? ' · NIF ' + p.nif : ''}`);
+  return l.join('\n');
+}
+function linkWa(ref, clienteId, lista, desc){
+  let n = String(S.clientes[clienteId]?.contacto || '').replace(/\D/g, '');
+  if (n.length === 9 && n.startsWith('9')) n = '351' + n;
+  return `https://wa.me/${n}?text=${encodeURIComponent(textoRecibo(ref, clienteId, lista, desc))}`;
+}
+function recLista(){
+  const k = S.recKey;
+  return k ? trabalhosDoRecibo(k.clienteId, k.data) : [];
+}
+function abrirRecibo(id){
+  const j = S.trabalhos[id];
+  if (!j) return say('Trabalho não encontrado.');
+  S.recKey = {clienteId: j.clienteId, data: j.data};
+  $('#rec-desc').value = descPadrao(recLista());
+  show('rec');
+  atualizaRecibo();
+}
+function atualizaRecibo(){
+  const k = S.recKey;
+  const lista = recLista();
+  if (!k || !lista.length) { $('#rec-doc').innerHTML = '<p class="empty">Escolhe um trabalho na aba Trabalhos.</p>'; $('#rec-ref').textContent = ''; return; }
+  const ref = refRecibo(k.clienteId, k.data);
+  const desc = $('#rec-desc').value;
+  $('#rec-ref').textContent = `${ref} · ${nomeC(k.clienteId)} · ${k.data} · ${lista.length} trabalho(s)`;
+  $('#rec-doc').innerHTML = `<div class="recibo">${corpoRecibo(ref, k.clienteId, lista, desc)}</div>`;
+  $('#rec-wa').href = linkWa(ref, k.clienteId, lista, desc);
+}
+function preencheprestador(){
+  const p = S.config?.prestador || {};
+  $('#pr-nome').value = p.nome || '';
+  $('#pr-nif').value = p.nif || '';
+  $('#pr-morada').value = p.morada || '';
+  $('#pr-contacto').value = p.contacto || '';
+}
+async function guardarRecibo(){
+  const k = S.recKey, lista = recLista();
+  if (!lista.length) return say('Escolhe um trabalho primeiro.');
+  const ref = refRecibo(k.clienteId, k.data);
+  const desc = $('#rec-desc').value;
+  try {
+    const dl = await ns('downloads');
+    if (!dl) return say('Guardar ficheiro não está disponível nesta visualização. Usa "Copiar texto".');
+    await dl.save({filename: `recibo-${ref}.html`, data: ficheiroRecibo(ref, k.clienteId, lista, desc)});
+    say('Ficheiro do recibo guardado.');
+  } catch (e) {
+    say(e?.code === 'declined' ? 'Guardar cancelado.' : 'Não foi possível guardar o ficheiro. Tenta outra vez.');
+  }
+}
+async function copiarRecibo(){
+  const k = S.recKey, lista = recLista();
+  if (!lista.length) return say('Escolhe um trabalho primeiro.');
+  try {
+    await navigator.clipboard.writeText(textoRecibo(refRecibo(k.clienteId, k.data), k.clienteId, lista, $('#rec-desc').value));
+    say('Texto do recibo copiado.');
+  } catch {
+    say('Não foi possível copiar. Seleciona o texto da descrição e copia manualmente.');
+  }
+}
+$('#rec-desc').addEventListener('input', atualizaRecibo);
+$('#f-prest').addEventListener('submit', async e => {
+  e.preventDefault();
+  const data = {
+    nome: $('#pr-nome').value.trim(), nif: $('#pr-nif').value.trim(),
+    morada: $('#pr-morada').value.trim(), contacto: $('#pr-contacto').value.trim(),
+  };
+  if (await run(() => db.collection('config').doc('prestador').set(data), 'Dados do prestador guardados.')) atualizaRecibo();
+});
+
+/* ---------- arranque ---------- */
+async function ns(nome){
+  try { return (await window.claude?.use?.(nome)) ?? null; }
+  catch { return null; }
+}
+(async () => {
+  db = await ns('db');
+  mcp = await ns('mcp');
+  if (!db) say('A base de dados não está disponível nesta visualização. Não é possível ler nem guardar.');
+  else {
+    for (const col of ['clientes', 'categorias', 'subcategorias', 'tipos', 'extras', 'maquinas', 'manutencoes', 'despesas', 'recebimentos', 'catsCaixa', 'formasPagamento', 'trabalhos', 'config']) {
+      db.collection(col).onSnapshot(snap => {
+        const o = {};
+        snap.docs.forEach(d => { if (d.exists) o[d.id] = d.data(); });
+        S[col] = o;
+        render();
+      }, err => say(explainDb(err)));
+    }
+  }
+  $('#j-data').value = hoje();
+  $('#r-mes').value = S.mes;
+  show('trab');
+})();
+</script>
+
+</body></html>
